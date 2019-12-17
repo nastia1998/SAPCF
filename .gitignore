@@ -1,0 +1,7 @@
+﻿.idea
+.mta
+gen
+node_modules/
+*.mtar
+*.jar
+db/src/gen/  
