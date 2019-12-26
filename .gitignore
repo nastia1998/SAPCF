@@ -5,3 +5,4 @@ node_modules/
 *.mtar
 *.jar
 db/src/gen/  
+./backend/srv/default-env.json
