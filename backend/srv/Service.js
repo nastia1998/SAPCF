@@ -27,7 +27,7 @@ module.exports = (srv) => {
     ]);
 
     srv.on('READ', 'Good', () => [
-        {adid: "A001", usid: "U001", name: "Sofa", price: 4.08}
+        {adid: "A001", usid: "U001", name: "Sofa"}
     ]);
 
 };

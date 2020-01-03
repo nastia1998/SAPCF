@@ -19,12 +19,12 @@
           "encrypt": true,
           "sslValidateCertificate": false,
           "driver": "com.sap.db.jdbc.Driver",
-          "url": "jdbc:sap://zeus.hana.prod.eu-central-1.whitney.dbaas.ondemand.com:23803?encrypt=true&validateCertificate=true&currentschema=PLANNING2",
-          "schema": "PLANNING2",
-          "hdi_user": "PLANNING2_E3ZOJA7V923MJF9G1493L4AG5_DT",
-          "hdi_password": "Ex4fIMvNMF6LYiMRNou7XnlgyZ4OD0v_yz9yXkYGkOrTDrli4M8rg8DCDELJPE3BwpFADEE46mquhN7SGlstr4JkE3fb2dP9.k8736CvN7T.FV-zNaqU9YZV9Lj-CRFz",
-          "user": "PLANNING2_W3ZOJA7V923MJF9G1493L4AG5_RT",
-          "password": "Ej12XPZYuTrDN_Wej5watIAs3D9Q95MaRRFY_jFWo8H2Gxl7HdijMT8ZL2VPxJjUZxLIQgphfdTxC.FsUt_dysh1kgsxwlDzWNjka8hvW9zt6mUofbenFss4uBXvKQvL"
+          "url": "jdbc:sap://zeus.hana.prod.eu-central-1.whitney.dbaas.ondemand.com:23803?encrypt=true&validateCertificate=true&currentschema=LAO_SCP",
+          "schema": "LAO_SCP",
+          "hdi_user": "LAO_SCP_57JN1KD68IRKJPTF3JMJ1W9YY_DT",
+          "hdi_password": "Dw1aU50a6aPgt_E6e5S8sCQ8vlmJwya5mfpEd0XjdcvrobUtBtrJP1E_BQUB7n8JBo2PiCtBKUrchiNWIm8BHDkp.8M0wyIlYm4pQOZAEeZTkp5K4k-Ret8rHLr2Bwop",
+          "user": "LAO_SCP_57JN1KD68IRKJPTF3JMJ1W9YY_RT",
+          "password": "Re4a-vlDZwWBEyNoA7dO1vMpkYUEAxm4s5Jj6nXq6q8UpH_vveDuMekgoiOVMoflMeJKeFvR1zB9yk8SoRQMN5VPr.52wVzCRGcuLlDg9NhReiWShAJ1ckRArxazUGpD"
         },
         "syslog_drain_url": null,
         "volume_mounts": []

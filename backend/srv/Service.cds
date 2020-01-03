@@ -2,7 +2,9 @@ using User as _User from '../db/User';
 using Address as _Address from '../db/ExtraInfo';
 using Cars as _Cars from '../db/ExtraInfo';
 using Test as _Test from '../db/Test';
+
 using Good as _Good from '../db/Good';
+using Customer as _Customer from '../db/Customer';
 
 service odata {
 
@@ -51,4 +53,12 @@ service odata {
     		}
     	) as projection on _Good;
 
+  entity Customer @(
+    title: 'Customer',
+    Capabilities: {
+        InsertRestrictions: {Insertable: false},
+        UpdateRestrictions: {Updatable: false},
+        DeleteRestrictions: {Deletable: false}
+    }
+  ) as projection on _Customer;
 }
