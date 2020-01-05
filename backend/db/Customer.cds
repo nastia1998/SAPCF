@@ -1,8 +1,7 @@
-using Id from './User';
+type Id : String(4);
 
 entity Customer {
-    key adid : Id;
-    usid : String(4);
+    key cuid : Id;
     name : String(100);
     telephone : String(50)
 }

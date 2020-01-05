@@ -1,8 +1,7 @@
-using Id from './User';
+using Id from './Customer';
 
 entity Good {
-    key adid : Id;
-    usid : String(4);
+    key goid : Id;
     name : String(100);
     price : Double
 }
