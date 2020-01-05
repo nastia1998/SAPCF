@@ -40,7 +40,6 @@ module.exports = () => {
 
         try {
             const db = new dbClass(req.db);
-            logger.info('create db instance');
             const oCustomer = _prepareObject(req.body, req);
             oCustomer.cuid = await db.getNextval("cuid");
             const sSql = "INSERT INTO \"CUSTOMER\" VALUES(?,?,?)";
@@ -62,7 +61,6 @@ module.exports = () => {
 
         try {
             const db = new dbClass(req.db);
-            logger.info('create db instance');
             const cuid = req.params.cuid;
             const oCustomer = _prepareObject(req.body, req);
             const sSql = "UPDATE \"CUSTOMER\" SET \"NAME\" = ?, \"TELEPHONE\" = ? " +
@@ -75,7 +73,27 @@ module.exports = () => {
         } catch (e) {
             next(e);
         }
-    })
+    });
+
+    app.delete("/:cuid", async (req, res, next) => {
+        const logger = req.loggingContext.getLogger("/Application");
+        logger.info('customers delete request');
+        let tracer = req.loggingContext.getTracer(__filename);
+        tracer.entering("/customers", req, res);
+
+        try {
+            const db = new dbClass(req.db);
+            const cuid = req.params.cuid;
+            const sSql = "DELETE FROM \"CUSTOMER\" WHERE \"CUID\" = ? ";
+            const aValues = [ cuid ];
+            await db.executeUpdate(sSql, aValues);
+            tracer.exiting("/customers", "customers DELETE works");
+
+            res.type("application/json").status(200).send();
+        } catch (e) {
+            next(e);
+        }
+    });
 
     return app;
 };
