@@ -1,0 +1,25 @@
+installation
+
+git
+node.js
+
+> npm config set @sap:registry https://npm.sap.com
+> npm config set package-lock false
+> npm --add-python-to-path='true' install --global windows-build-tools (admin) if takes too long scroll up and see the errors
+> npm install -g grunt-cli
+
+download mta archive builder from https://tools.hana.ondemand.com/#cloud
+download and install cf cli from https://github.com/cloudfoundry/cli#installers-and-compressed-binaries
+
+> cf install-plugin multiapps
+
+--------------------------------------------------------------------------------------------------------------
+
+add table
+
+srv> npm run postinstall
+srv> npm run build
+db> npm run postinstall
+db> npm run start
+
+
