@@ -15,6 +15,21 @@ download and install cf cli from https://github.com/cloudfoundry/cli#installers-
 
 --------------------------------------------------------------------------------------------------------------
 
+set endpoint (JWS token)
+
+>cf login
+>cf api <API Endpoint>
+>cf api (show all endpoints)
+
+--------------------------------------------------------------------------------------------------------------
+
+create archive and deploy
+
+java -jar mta.jar --build-target=CF build
+cf deploy resources.mtar
+
+--------------------------------------------------------------------------------------------------------------
+
 add table
 
 srv> npm run postinstall
@@ -22,4 +37,21 @@ srv> npm run build
 db> npm run postinstall
 db> npm run start
 
+--------------------------------------------------------------------------------------------------------------
+SAP Cloud Connector
 
+https://blogs.sap.com/2018/11/12/how-to-setup-cloud-connection/
+
+--------------------------------------------------------------------------------------------------------------
+sapui5 app
+
+deploy web
+deploy router
+
+--------------------------------------------------------------------------------------------------------------
+
+DELETE SERVICE
+
+cf delete-service <service instance name>
+
+--------------------------------------------------------------------------------------------------------------

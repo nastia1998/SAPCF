@@ -8,5 +8,6 @@
       "service": "html5-apps-repo-rt",
       "authenticationType": "xsuaa"
     }
+
   ]
 }

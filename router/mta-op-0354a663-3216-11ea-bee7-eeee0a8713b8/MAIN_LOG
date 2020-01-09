@@ -1,0 +1,2738 @@
+#2.0#2020 01 08 12:54:31.485#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.startEvent#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########http-nio-0.0.0.0-8080-exec-10###
+[StartProcessListener] Process environment: {
+  "FLOWABLE_JOB_EXECUTOR_MAX_THREADS" : "64",
+  "BASIC_AUTH_ENABLED" : "true",
+  "CONTROLLER_CLIENT_CONNECTION_POOL_SIZE" : "192",
+  "FLOWABLE_JOB_EXECUTOR_CORE_THREADS" : "32",
+  "PLATFORM" : "{\n  \"name\": \"CLOUD-FOUNDRY\",\n  \"module-types\": [\n    { \"name\": \"custom\" },\n    { \"name\": \"javascript.nodejs\" },\n    { \"name\": \"java\", \"parameters\": { \"buildpack\": \"sap_java_buildpack\" }},\n    { \"name\": \"java.tomcat\", \"parameters\": { \"buildpack\": \"sap_java_buildpack\" }, \"properties\": { \"TARGET_RUNTIME\": \"tomcat\" }},\n    { \"name\": \"java.tomee\",  \"parameters\": { \"buildpack\": \"sap_java_buildpack\" }, \"properties\": { \"TARGET_RUNTIME\": \"tomee\" }},\n    { \"name\": \"com.sap.xs.hdi-dynamic\", \"parameters\": { \"buildpack\": \"nodejs_buildpack\" }},\n    { \"name\": \"com.sap.xs.hdi\", \"parameters\": { \"no-route\": true, \"no-start\": true, \"memory\": \"256M\", \"tasks\": [{ \"name\": \"deploy\", \"memory\": \"256M\", \"command\": \"npm start\" }], \"dependency-type\": \"hard\" }, \"properties\" : { \"EXIT\": 1 }},\n    { \"name\": \"com.sap.xs.hdi-zdm\", \"parameters\": { \"zdm-mode\": true, \"no-route\": true, \"no-start\": true, \"memory\": \"256M\", \"tasks\": [{ \"name\": \"deploy\", \"memory\": \"256M\", \"command\": \"npm start\" }], \"dependency-type\": \"hard\" }, \"properties\" : { \"EXIT\": 1, \"HDI_DEPLOY_MODE\": \"ZDM\" }},\n    { \"name\": \"com.sap.portal.site-content\", \"parameters\": { \"no-route\": true, \"memory\": \"256M\", \"execute-app\": true, \"success-marker\": \"STDOUT:Deployment of site content to .* done.*\", \"failure-marker\": \"STDERR:Deployment of site content to .* failed.*\", \"stop-app\": true, \"check-deploy-id\": true, \"dependency-type\": \"hard\", \"health-check-type\": \"none\" }},\n    { \"name\": \"com.sap.portal.content\", \"parameters\": { \"no-route\": true, \"no-start\": true, \"memory\": \"256M\", \"tasks\": [{ \"name\": \"deploy\", \"memory\": \"256M\", \"command\": \"npm start\" }], \"dependency-type\": \"hard\" }, \"properties\" : { \"EXIT\": 1 }},\n    { \"name\": \"com.sap.xs.dwf\", \"parameters\": { \"no-route\": true, \"memory\": \"256M\", \"execute-app\": true, \"success-marker\": \"STDOUT:The deployment of DWF content to .* container finished successfully .*\", \"failure-marker\": \"STDERR:The deployment of DWF content to .* container failed .*\", \"stop-app\": true, \"check-deploy-id\": true, \"dependency-type\": \"hard\", \"health-check-type\": \"none\" }},\n    { \"name\": \"business-logging\", \"parameters\": { \"no-route\": true, \"memory\": \"256M\", \"execute-app\": true, \"success-marker\": \"STDOUT:Deployment of content deployer done.\", \"failure-marker\": \"STDERR:Deployment of content deployer failed.\", \"stop-app\": true, \"health-check-type\": \"none\" }},\n    { \"name\": \"com.sap.business-logging.content\", \"parameters\": { \"no-route\": true, \"no-start\": true, \"memory\": \"256M\", \"tasks\": [{ \"name\": \"deploy\", \"memory\": \"256M\", \"command\": \"npm start\" }], \"dependency-type\": \"hard\" }, \"properties\" : { \"EXIT\": 1 }},\n    { \"name\": \"com.sap.html5.application-content\", \"parameters\": { \"no-route\": true, \"memory\": \"256M\", \"execute-app\": true, \"success-marker\": \"STDOUT:Deployment of html5 application content done.*\", \"failure-marker\": \"STDERR:Deployment of html5 application content failed.*\", \"stop-app\": true, \"check-deploy-id\": true, \"dependency-type\": \"hard\", \"health-check-type\": \"none\" }}, \n    { \"name\": \"com.sap.html5.application.content\", \"parameters\": { \"no-route\": true, \"no-start\": true, \"memory\": \"256M\", \"tasks\": [{ \"name\": \"deploy\", \"memory\": \"256M\", \"command\": \"npm start\" }], \"dependency-type\": \"hard\" }, \"properties\" : { \"EXIT\": 1 }},\n    { \"name\": \"staticfile\", \"parameters\": { \"buildpack\": \"staticfile_buildpack\" }},\n    { \"name\": \"ruby\", \"parameters\": { \"buildpack\": \"ruby_buildpack\" }},\n    { \"name\": \"nodejs\", \"parameters\": { \"buildpack\": \"nodejs_buildpack\" }},\n    { \"name\": \"go\", \"parameters\": { \"buildpack\": \"go_buildpack\" }},\n    { \"name\": \"python\", \"parameters\": { \"buildpack\": \"python_buildpack\" }},\n    { \"name\": \"php\", \"parameters\": { \"buildpack\": \"php_buildpack\" }},\n    { \"name\": \"binary\", \"parameters\": { \"buildpack\": \"binary_buildpack\" }},\n    { \"name\": \"dotnet_core\", \"parameters\": { \"buildpack\": \"dotnet_core_buildpack\" }},\n    { \"name\": \"application\" },\n    { \"name\": \"com.sap.application.content\" }\n  ],\n  \"resource-types\": [\n    { \"name\": \"com.sap.xs.hdi-container\", \"parameters\": { \"service\": \"hana\", \"service-plan\": \"hdi-shared\", \"service-alternatives\": [\"hanatrial\"], \"type\": \"managed-service\" }},\n    { \"name\": \"com.sap.xs.hana-sbss\", \"parameters\": { \"service\": \"hana\", \"service-plan\": \"sbss\", \"service-alternatives\": [\"hanatrial\"], \"type\": \"managed-service\" }},\n    { \"name\": \"com.sap.xs.hana-schema\", \"parameters\": { \"service\": \"hana\", \"service-plan\": \"schema\", \"service-alternatives\": [\"hanatrial\"], \"type\": \"managed-service\" }},\n    { \"name\": \"com.sap.xs.hana-securestore\", \"parameters\": { \"service\": \"hana\", \"service-plan\": \"securestore\", \"service-alternatives\": [\"hanatrial\"], \"type\": \"managed-service\" }},\n    { \"name\": \"com.sap.xs.managed-hdi-container\", \"parameters\": { \"service\": \"managed-hana\", \"service-plan\": \"hdi-shared\", \"type\": \"managed-service\" }},\n    { \"name\": \"com.sap.xs.managed-hana-schema\", \"parameters\": { \"service\": \"managed-hana\", \"service-plan\": \"schema\", \"type\": \"managed-service\" }},\n    { \"name\": \"com.sap.xs.managed-hana-securestore\", \"parameters\": { \"service\": \"managed-hana\", \"service-plan\": \"securestore\", \"type\": \"managed-service\" }},\n    { \"name\": \"com.sap.xs.job-scheduler\", \"parameters\": { \"service\": \"jobscheduler\", \"service-plan\": \"lite\", \"type\": \"managed-service\" }},\n    { \"name\": \"com.sap.xs.fs\", \"parameters\": { \"service\": \"fs-storage\", \"service-plan\": \"lite\", \"type\": \"managed-service\" }},\n    { \"name\": \"com.sap.xs.uaa\", \"parameters\": { \"service\": \"xsuaa\", \"service-plan\": \"application\", \"type\": \"managed-service\" }},\n    { \"name\": \"com.sap.xs.uaa-space\", \"parameters\": { \"service\": \"xsuaa\", \"service-plan\": \"application\", \"type\": \"managed-service\" }},\n    { \"name\": \"com.sap.xs.uaa-devuser\", \"parameters\": { \"service\": \"xsuaa\", \"service-plan\": \"application\", \"type\": \"managed-service\" }},\n    { \"name\": \"com.sap.xs.uaa-application\", \"parameters\": { \"service\": \"xsuaa\", \"service-plan\": \"application\", \"type\": \"managed-service\" }},\n    { \"name\": \"com.sap.xs.uaa-broker\", \"parameters\": { \"service\": \"xsuaa\", \"service-plan\": \"broker\", \"type\": \"managed-service\" }},\n    { \"name\": \"com.sap.xs.application-logs\", \"parameters\": { \"service\": \"application-logs\", \"service-plan\": \"lite\", \"ignore-update-errors\": true , \"type\": \"managed-service\" }},\n    { \"name\": \"com.sap.portal.site-host\", \"parameters\": { \"service\": \"portal-services\", \"service-plan\": \"site-host\", \"type\": \"managed-service\" }},\n    { \"name\": \"com.sap.portal.site-content\", \"parameters\": { \"service\": \"portal-services\", \"service-plan\": \"site-content\", \"type\": \"managed-service\" }},\n    { \"name\": \"com.sap.xs.dwf-edw-client\", \"parameters\": { \"service\": \"dwf\", \"service-plan\": \"edw-client\", \"type\": \"managed-service\"}},\n    { \"name\": \"com.sap.xs.auditlog\", \"parameters\": { \"service\": \"auditlog\", \"service-plan\": \"standard\", \"ignore-update-errors\": true , \"type\": \"managed-service\" }},\n    { \"name\": \"auditlog\", \"parameters\": { \"service\": \"auditlog\", \"service-plan\": \"standard\", \"ignore-update-errors\": true , \"type\": \"managed-service\" }},\n    { \"name\": \"org.mongodb\", \"parameters\": { \"service\": \"mongodb\", \"service-plan\": \"v3.0-dev\", \"type\": \"managed-service\" }},\n    { \"name\": \"mongodb\", \"parameters\": { \"service\": \"mongodb\", \"service-plan\": \"v3.0-dev\", \"type\": \"managed-service\" }},\n    { \"name\": \"org.postgresql\", \"parameters\": { \"service\": \"postgresql\", \"service-plan\": \"v9.4-dev\", \"type\": \"managed-service\" }},\n    { \"name\": \"postgresql\", \"parameters\": { \"service\": \"postgresql\", \"service-plan\": \"v9.4-dev\", \"type\": \"managed-service\" }},\n    { \"name\": \"com.rabbitmq\", \"parameters\": { \"service\": \"rabbitmq\", \"service-plan\": \"v3.6-dev\", \"type\": \"managed-service\" }},\n    { \"name\": \"rabbitmq\", \"parameters\": { \"service\": \"rabbitmq\", \"service-plan\": \"v3.6-dev\", \"type\": \"managed-service\" }},\n    { \"name\": \"io.redis\", \"parameters\": { \"service\": \"redis\", \"service-plan\": \"v3.0-dev\", \"type\": \"managed-service\" }},\n    { \"name\": \"redis\", \"parameters\": { \"service\": \"redis\", \"service-plan\": \"v3.0-dev\", \"type\": \"managed-service\" }},\n    { \"name\": \"com.influxdb\", \"parameters\": { \"service\": \"influxdb\", \"service-plan\": \"v0.13-container\", \"type\": \"managed-service\" }},\n    { \"name\": \"influxdb\", \"parameters\": { \"service\": \"influxdb\", \"service-plan\": \"v0.13-container\", \"type\": \"managed-service\" }},\n    { \"name\": \"org.cloudfoundry.user-provided-service\", \"parameters\": { \"type\": \"user-provided-service\" }},\n    { \"name\": \"org.cloudfoundry.managed-service\", \"parameters\": { \"type\": \"managed-service\" }},\n    { \"name\": \"org.cloudfoundry.existing-service\", \"parameters\": { \"type\": \"existing-service\" }},\n    { \"name\": \"org.cloudfoundry.existing-service-key\", \"parameters\": { \"type\": \"existing-service-key\" }},\n    { \"name\": \"mta-provided\", \"parameters\": { \"type\": \"mta-provides-dependency\" }},\n    { \"name\": \"configuration\", \"parameters\": { \"type\": \"configuration\" }},\n    { \"name\": \"autoscaler\", \"parameters\": { \"service\": \"autoscaler\", \"service-plan\": \"lite\", \"ignore-update-errors\": true , \"type\": \"managed-service\" }},\n    { \"name\": \"application-logs\", \"parameters\": { \"service\": \"application-logs\", \"service-plan\": \"lite\", \"ignore-update-errors\": true , \"type\": \"managed-service\" }},\n    { \"name\": \"connectivity\", \"parameters\": { \"service\": \"connectivity\", \"service-plan\": \"lite\", \"type\": \"managed-service\" }},\n    { \"name\": \"feature-flags\", \"parameters\": { \"service\": \"feature-flags\", \"service-plan\": \"lite\", \"type\": \"managed-service\" }},\n    { \"name\": \"metering\", \"parameters\": { \"service\": \"metering\", \"service-plan\": \"standard\", \"type\": \"managed-service\" }},\n    { \"name\": \"ml-foundation-services\", \"parameters\": { \"service\": \"ml-foundation-services\", \"service-plan\": \"lite\", \"type\": \"managed-service\" }},\n    { \"name\": \"objectstore\", \"parameters\": { \"service\": \"objectstore\", \"service-plan\": \"s3-standard\", \"type\": \"managed-service\" }},\n    { \"name\": \"destination\", \"parameters\": { \"service\": \"destination\", \"service-plan\": \"lite\", \"type\": \"managed-service\" }}\n  ]\n}\n",
+  "SKIP_SSL_VALIDATION" : "false",
+  "DB_TYPE" : "POSTGRESQL",
+  "CONTROLLER_CLIENT_THREAD_POOL_SIZE" : "64",
+  "XS_TYPE" : "CF",
+  "VERSION" : "1.89.0",
+  "MAIL_API_URL" : "https://slanamailproxyab00ec583.hana.ondemand.com/SendFeedbackMail/",
+  "FLOWABLE_JOB_EXECUTOR_QUEUE_CAPACITY" : "8",
+  "GLOBAL_AUDITOR_USER" : "provisioned_user_xsa_deploy-serviceDSglobalAuditorUser",
+  "GATHER_USAGE_STATISTICS" : "false"
+}#
+
+#2.0#2020 01 08 12:54:31.485#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.startEvent#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########http-nio-0.0.0.0-8080-exec-10###
+[StartProcessListener] Current user: ANASTASIYA.LESHCHANKA@LEVERX.COM#
+
+#2.0#2020 01 08 12:54:31.486#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.startEvent#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########http-nio-0.0.0.0-8080-exec-10###
+[StartProcessListener] Client space: dev#
+
+#2.0#2020 01 08 12:54:31.486#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.startEvent#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########http-nio-0.0.0.0-8080-exec-10###
+[StartProcessListener] Client org: P2001634032trial_trial#
+
+#2.0#2020 01 08 12:54:31.486#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.startEvent#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########http-nio-0.0.0.0-8080-exec-10###
+[StartProcessListener] Process variables: {
+  "abortOnError" : false,
+  "keepFiles" : false,
+  "versionRule" : "SAME_HIGHER",
+  "verifyArchiveSignature" : false,
+  "gitSkipSsl" : false,
+  "failOnCrashed" : true,
+  "noFailOnMissingPermissions" : false,
+  "useNamespacesForServices" : true,
+  "skipOwnershipValidation" : false,
+  "startTimeout" : 3600,
+  "deleteServiceBrokers" : false,
+  "appArchiveId" : "724575f2-4eaa-4af4-899b-7a3563176eb5",
+  "gitUri" : "",
+  "noRestartSubscribedApps" : false,
+  "deleteServiceKeys" : false,
+  "useNamespaces" : false,
+  "deleteServices" : false,
+  "noStart" : false
+}#
+
+#2.0#2020 01 08 12:54:31.517#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.validateParametersTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-8###
+[ValidateDeployParametersStep] Executing task "validateParametersTask" of process "0354cd8c-3216-11ea-bee7-eeee0a8713b8"...#
+
+#2.0#2020 01 08 12:54:31.520#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.validateParametersTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-8###
+[ValidateDeployParametersStep] Validating parameters...#
+
+#2.0#2020 01 08 12:54:31.520#Z#INFO#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.validateParametersTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-8###
+[ValidateDeployParametersStep] Deploying in org "P2001634032trial_trial" and space "dev"#
+
+#2.0#2020 01 08 12:54:31.523#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.validateParametersTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-8###
+[ValidateDeployParametersStep] Parameters validated#
+
+#2.0#2020 01 08 12:54:31.524#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.validateParametersTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-8###
+Step "Validate Parameters" finished#
+
+#2.0#2020 01 08 12:54:31.542#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.deleteRemainingFileParts#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-3###
+[DeleteRemainingFileParts] Executing task "deleteRemainingFileParts" of process "0354cd8c-3216-11ea-bee7-eeee0a8713b8"...#
+
+#2.0#2020 01 08 12:54:31.546#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.deleteRemainingFileParts#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-3###
+Step "Delete Remaining File Parts" finished#
+
+#2.0#2020 01 08 12:54:31.576#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.processArchiveTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-16###
+[ProcessMtaArchiveStep] Executing task "processArchiveTask" of process "0354cd8c-3216-11ea-bee7-eeee0a8713b8"...#
+
+#2.0#2020 01 08 12:54:31.579#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.processArchiveTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-16###
+[ProcessMtaArchiveStep] Processing MTA archive...#
+
+#2.0#2020 01 08 12:54:31.635#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.processArchiveTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-16###
+[ProcessMtaArchiveStep] MTA Archive ID: 724575f2-4eaa-4af4-899b-7a3563176eb5#
+
+#2.0#2020 01 08 12:54:31.635#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.processArchiveTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-16###
+[ProcessMtaArchiveStep] MTA Archive Modules: [router]#
+
+#2.0#2020 01 08 12:54:31.636#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.processArchiveTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-16###
+[ProcessMtaArchiveStep] MTA Archive Requires: []#
+
+#2.0#2020 01 08 12:54:31.636#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.processArchiveTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-16###
+[ProcessMtaArchiveStep] MTA Archive Resources: []#
+
+#2.0#2020 01 08 12:54:31.641#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.processArchiveTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-16###
+[ProcessMtaArchiveStep] MTA archive processed#
+
+#2.0#2020 01 08 12:54:31.642#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.processArchiveTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-16###
+Step "Process Archive" finished#
+
+#2.0#2020 01 08 12:54:31.669#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.processExtensionDescriptorsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-15###
+[ProcessMtaExtensionDescriptorsStep] Executing task "processExtensionDescriptorsTask" of process "0354cd8c-3216-11ea-bee7-eeee0a8713b8"...#
+
+#2.0#2020 01 08 12:54:31.672#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.processExtensionDescriptorsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-15###
+[ProcessMtaExtensionDescriptorsStep] Processing MTA extension descriptors...#
+
+#2.0#2020 01 08 12:54:31.672#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.processExtensionDescriptorsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-15###
+[ProcessMtaExtensionDescriptorsStep] Extension descriptors: [ ]#
+
+#2.0#2020 01 08 12:54:31.673#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.processExtensionDescriptorsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-15###
+[ProcessMtaExtensionDescriptorsStep] MTA extension descriptors processed#
+
+#2.0#2020 01 08 12:54:31.673#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.processExtensionDescriptorsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-15###
+Step "Process Extension Descriptors" finished#
+
+#2.0#2020 01 08 12:54:31.695#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.detectSchemaVersionTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-18###
+[DetectMtaSchemaVersionStep] Executing task "detectSchemaVersionTask" of process "0354cd8c-3216-11ea-bee7-eeee0a8713b8"...#
+
+#2.0#2020 01 08 12:54:31.699#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.detectSchemaVersionTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-18###
+[DetectMtaSchemaVersionStep] Detecting MTA major schema version...#
+
+#2.0#2020 01 08 12:54:31.700#Z#INFO#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.detectSchemaVersionTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-18###
+[DetectMtaSchemaVersionStep] Detected MTA schema version: "3"#
+
+#2.0#2020 01 08 12:54:31.704#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.detectSchemaVersionTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-18###
+Step "Detect Schema Version" finished#
+
+#2.0#2020 01 08 12:54:31.726#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.mergeDescriptorsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-14###
+[MergeDescriptorsStep] Executing task "mergeDescriptorsTask" of process "0354cd8c-3216-11ea-bee7-eeee0a8713b8"...#
+
+#2.0#2020 01 08 12:54:31.729#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.mergeDescriptorsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-14###
+[MergeDescriptorsStep] Validating and merging descriptors...#
+
+#2.0#2020 01 08 12:54:31.731#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.mergeDescriptorsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-14###
+[MergeDescriptorsStep] Merged deployment descriptor: {
+  "majorSchemaVersion" : 3,
+  "schemaVersion" : "3.1.0",
+  "id" : "lev_router",
+  "version" : "1.0.0",
+  "modules" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "router",
+    "type" : "javascript.nodejs",
+    "properties" : {
+      "XS_APP_LOG_LEVEL" : "debug"
+    },
+    "parameters" : {
+      "disk-quota" : "256M",
+      "memory" : "128M"
+    },
+    "requiredDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "lev_router",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "lev_conn",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "lev_dest",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "lev_uaa",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "lev_srv",
+      "group" : "destinations",
+      "properties" : {
+        "name" : "lev_srv",
+        "forwardAuthToken" : true,
+        "url" : "~{url}"
+      },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "providedDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "router",
+      "isPublic" : false,
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "hooks" : [ ]
+  } ],
+  "resources" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "lev_srv",
+    "type" : "configuration",
+    "properties" : { },
+    "parameters" : {
+      "type" : "configuration",
+      "version" : ">=0.0.1",
+      "provider-nid" : "mta",
+      "provider-id" : "lev_backend:lev_srv"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "lev_dest",
+    "type" : "org.cloudfoundry.existing-service",
+    "properties" : { },
+    "parameters" : {
+      "type" : "existing-service"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "lev_conn",
+    "type" : "org.cloudfoundry.existing-service",
+    "properties" : { },
+    "parameters" : {
+      "type" : "existing-service"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "lev_uaa",
+    "type" : "org.cloudfoundry.existing-service",
+    "properties" : { },
+    "parameters" : {
+      "type" : "existing-service"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "lev_router",
+    "type" : "org.cloudfoundry.existing-service",
+    "properties" : { },
+    "parameters" : {
+      "type" : "existing-service"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ]
+  } ],
+  "parameters" : { },
+  "parametersMetadata" : {
+    "metadata" : { }
+  }
+}#
+
+#2.0#2020 01 08 12:54:31.732#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.mergeDescriptorsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-14###
+[MergeDescriptorsStep] Descriptors validated and merged#
+
+#2.0#2020 01 08 12:54:31.732#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.mergeDescriptorsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-14###
+Step "Merge Descriptors" finished#
+
+#2.0#2020 01 08 12:54:31.754#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.detectDeployedMtaTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-4###
+[DetectDeployedMtaStep] Executing task "detectDeployedMtaTask" of process "0354cd8c-3216-11ea-bee7-eeee0a8713b8"...#
+
+#2.0#2020 01 08 12:54:31.757#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.detectDeployedMtaTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-4###
+[DetectDeployedMtaStep] Detecting deployed MTA...#
+
+#2.0#2020 01 08 12:54:33.753#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.detectDeployedMtaTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-4###
+[DetectDeployedMtaStep] Deployed MTA: {
+  "metadata" : {
+    "id" : "lev_router",
+    "version" : "1.0.0"
+  },
+  "modules" : [ {
+    "moduleName" : "router",
+    "appName" : "router",
+    "createdOn" : 1578320103000,
+    "updatedOn" : 1578485173000,
+    "services" : [ ],
+    "providedDependencyNames" : [ ],
+    "uris" : [ "p2001634032trial-trial-dev-router.cfapps.eu10.hana.ondemand.com" ]
+  } ],
+  "services" : [ ]
+}#
+
+#2.0#2020 01 08 12:54:33.753#Z#INFO#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.detectDeployedMtaTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-4###
+[DetectDeployedMtaStep] Detected deployed MTA with ID "lev_router" and version "1.0.0"#
+
+#2.0#2020 01 08 12:54:33.757#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.detectDeployedMtaTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-4###
+[DetectDeployedMtaStep] Deployed apps: [ {
+  "metadata" : {
+    "guid" : "860b15fe-5357-40ad-a379-7c7a6ea343ac",
+    "createdAt" : 1576580531000,
+    "updatedAt" : 1576666848000,
+    "url" : "/v2/apps/860b15fe-5357-40ad-a379-7c7a6ea343ac"
+  },
+  "name" : "lev_db",
+  "memory" : 256,
+  "diskQuota" : 256,
+  "instances" : 1,
+  "runningInstances" : 0,
+  "state" : "STOPPED",
+  "staging" : {
+    "isSshEnabled" : false,
+    "buildpacks" : [ ],
+    "detectedBuildpack" : "nodejs",
+    "healthCheckType" : "port",
+    "stack" : "cflinuxfs3"
+  },
+  "packageState" : "STAGED",
+  "uris" : [ ],
+  "services" : [ "lev_hdi" ],
+  "env" : {
+    "DEPLOY_ATTRIBUTES" : "{\n  \"app-content-digest\" : \"B41336ABF4EAB3D601AC3DC3AE172469\",\n  \"dependency-type\" : \"hard\",\n  \"no-start\" : true\n}",
+    "EXIT" : "1",
+    "MTA_METADATA" : "{\n  \"id\" : \"lev_backend\",\n  \"version\" : \"1.0.0\"\n}",
+    "MTA_MODULE_METADATA" : "{\n  \"name\" : \"lev_db\"\n}",
+    "MTA_MODULE_PROVIDED_DEPENDENCIES" : "[ \"lev_db\" ]",
+    "MTA_SERVICES" : "[ ]"
+  },
+  "space" : {
+    "metadata" : {
+      "guid" : "dc39145a-be4b-48eb-9e61-d453af596550",
+      "createdAt" : 1576506132000,
+      "updatedAt" : 1576506132000,
+      "url" : "/v2/spaces/dc39145a-be4b-48eb-9e61-d453af596550"
+    },
+    "name" : "dev",
+    "organization" : {
+      "metadata" : {
+        "guid" : "552787f3-e48f-49a5-a4db-431ea071a8bc",
+        "createdAt" : 1576506115000,
+        "updatedAt" : 1576506140000,
+        "url" : "/v2/organizations/552787f3-e48f-49a5-a4db-431ea071a8bc"
+      },
+      "name" : "P2001634032trial_trial"
+    }
+  }
+}, {
+  "metadata" : {
+    "guid" : "9093919e-8c73-4fa5-8e8d-16f7a6764a87",
+    "createdAt" : 1578319919000,
+    "updatedAt" : 1578485034000,
+    "url" : "/v2/apps/9093919e-8c73-4fa5-8e8d-16f7a6764a87"
+  },
+  "name" : "deployer",
+  "memory" : 128,
+  "diskQuota" : 256,
+  "instances" : 1,
+  "runningInstances" : 0,
+  "state" : "STOPPED",
+  "staging" : {
+    "isSshEnabled" : false,
+    "buildpacks" : [ ],
+    "detectedBuildpack" : "nodejs",
+    "healthCheckType" : "none",
+    "stack" : "cflinuxfs3"
+  },
+  "packageState" : "STAGED",
+  "uris" : [ ],
+  "services" : [ "lev_deployer" ],
+  "env" : {
+    "DEPLOY_ATTRIBUTES" : "{\n  \"app-content-digest\" : \"6C684183C3A4BB5C12A445B1B89038AD\",\n  \"check-deploy-id\" : true,\n  \"dependency-type\" : \"hard\",\n  \"execute-app\" : true,\n  \"failure-marker\" : \"STDERR:Deployment of html5 application content failed.*\",\n  \"stop-app\" : true,\n  \"success-marker\" : \"STDOUT:Deployment of html5 application content done.*\"\n}",
+    "DEPLOY_ID" : "deploy-a963eacf-320e-11ea-8f98-eeee0a82b33d",
+    "MTA_METADATA" : "{\n  \"id\" : \"lev_deployer\",\n  \"version\" : \"1.0.0\"\n}",
+    "MTA_MODULE_METADATA" : "{\n  \"name\" : \"deployer\"\n}",
+    "MTA_MODULE_PROVIDED_DEPENDENCIES" : "[ \"deployer\" ]",
+    "MTA_SERVICES" : "[ ]"
+  },
+  "space" : {
+    "metadata" : {
+      "guid" : "dc39145a-be4b-48eb-9e61-d453af596550",
+      "createdAt" : 1576506132000,
+      "updatedAt" : 1576506132000,
+      "url" : "/v2/spaces/dc39145a-be4b-48eb-9e61-d453af596550"
+    },
+    "name" : "dev",
+    "organization" : {
+      "metadata" : {
+        "guid" : "552787f3-e48f-49a5-a4db-431ea071a8bc",
+        "createdAt" : 1576506115000,
+        "updatedAt" : 1576506140000,
+        "url" : "/v2/organizations/552787f3-e48f-49a5-a4db-431ea071a8bc"
+      },
+      "name" : "P2001634032trial_trial"
+    }
+  }
+}, {
+  "metadata" : {
+    "guid" : "44fcfeba-b0c2-40f6-9dbd-160b4c9c1609",
+    "createdAt" : 1578320103000,
+    "updatedAt" : 1578485173000,
+    "url" : "/v2/apps/44fcfeba-b0c2-40f6-9dbd-160b4c9c1609"
+  },
+  "name" : "router",
+  "memory" : 128,
+  "diskQuota" : 256,
+  "instances" : 1,
+  "runningInstances" : 0,
+  "state" : "STOPPED",
+  "staging" : {
+    "isSshEnabled" : false,
+    "buildpacks" : [ ],
+    "healthCheckType" : "port",
+    "stack" : "cflinuxfs3"
+  },
+  "packageState" : "FAILED",
+  "stagingError" : "App staging failed in the buildpack compile phase",
+  "uris" : [ "p2001634032trial-trial-dev-router.cfapps.eu10.hana.ondemand.com" ],
+  "services" : [ "lev_uaa", "lev_conn", "lev_router", "lev_dest" ],
+  "env" : {
+    "DEPLOY_ATTRIBUTES" : "{\n  \"app-content-digest\" : \"C2D9951E79F445BF5E1AF43E0D7A899E\"\n}",
+    "MTA_METADATA" : "{\n  \"id\" : \"lev_router\",\n  \"version\" : \"1.0.0\"\n}",
+    "MTA_MODULE_METADATA" : "{\n  \"name\" : \"router\"\n}",
+    "MTA_MODULE_PROVIDED_DEPENDENCIES" : "[ ]",
+    "MTA_SERVICES" : "[ ]",
+    "XS_APP_LOG_LEVEL" : "debug",
+    "destinations" : "[ {\n  \"forwardAuthToken\" : true,\n  \"name\" : \"lev_srv\",\n  \"url\" : \"https://p2001634032trial-trial-dev-lev-srv.cfapps.eu10.hana.ondemand.com\"\n} ]"
+  },
+  "space" : {
+    "metadata" : {
+      "guid" : "dc39145a-be4b-48eb-9e61-d453af596550",
+      "createdAt" : 1576506132000,
+      "updatedAt" : 1576506132000,
+      "url" : "/v2/spaces/dc39145a-be4b-48eb-9e61-d453af596550"
+    },
+    "name" : "dev",
+    "organization" : {
+      "metadata" : {
+        "guid" : "552787f3-e48f-49a5-a4db-431ea071a8bc",
+        "createdAt" : 1576506115000,
+        "updatedAt" : 1576506140000,
+        "url" : "/v2/organizations/552787f3-e48f-49a5-a4db-431ea071a8bc"
+      },
+      "name" : "P2001634032trial_trial"
+    }
+  }
+}, {
+  "metadata" : {
+    "guid" : "60559550-c15e-4aac-8bed-dda2bde65df7",
+    "createdAt" : 1576580669000,
+    "updatedAt" : 1577492840000,
+    "url" : "/v2/apps/60559550-c15e-4aac-8bed-dda2bde65df7"
+  },
+  "name" : "lev_srv",
+  "memory" : 256,
+  "diskQuota" : 1024,
+  "instances" : 1,
+  "runningInstances" : 0,
+  "state" : "STOPPED",
+  "staging" : {
+    "isSshEnabled" : false,
+    "buildpacks" : [ ],
+    "detectedBuildpack" : "nodejs",
+    "healthCheckType" : "port",
+    "stack" : "cflinuxfs3"
+  },
+  "packageState" : "STAGED",
+  "uris" : [ "p2001634032trial-trial-dev-lev-srv.cfapps.eu10.hana.ondemand.com" ],
+  "services" : [ "lev_conn", "lev_hdi", "lev_dest", "lev_uaa" ],
+  "env" : {
+    "DEPLOY_ATTRIBUTES" : "{\n  \"app-content-digest\" : \"7AE13BE623E311B1EF43D5F952DFE6CF\"\n}",
+    "MTA_METADATA" : "{\n  \"id\" : \"lev_backend\",\n  \"version\" : \"1.0.0\"\n}",
+    "MTA_MODULE_METADATA" : "{\n  \"name\" : \"lev_srv\"\n}",
+    "MTA_MODULE_PROVIDED_DEPENDENCIES" : "[ \"lev_srv\" ]",
+    "MTA_SERVICES" : "[ ]",
+    "XS_APP_LOG_LEVEL" : "debug"
+  },
+  "space" : {
+    "metadata" : {
+      "guid" : "dc39145a-be4b-48eb-9e61-d453af596550",
+      "createdAt" : 1576506132000,
+      "updatedAt" : 1576506132000,
+      "url" : "/v2/spaces/dc39145a-be4b-48eb-9e61-d453af596550"
+    },
+    "name" : "dev",
+    "organization" : {
+      "metadata" : {
+        "guid" : "552787f3-e48f-49a5-a4db-431ea071a8bc",
+        "createdAt" : 1576506115000,
+        "updatedAt" : 1576506140000,
+        "url" : "/v2/organizations/552787f3-e48f-49a5-a4db-431ea071a8bc"
+      },
+      "name" : "P2001634032trial_trial"
+    }
+  }
+} ]#
+
+#2.0#2020 01 08 12:54:33.758#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.detectDeployedMtaTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-4###
+Step "Detect Deployed MTA" finished#
+
+#2.0#2020 01 08 12:54:33.783#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.collectSystemParametersTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-17###
+[CollectSystemParametersStep] Executing task "collectSystemParametersTask" of process "0354cd8c-3216-11ea-bee7-eeee0a8713b8"...#
+
+#2.0#2020 01 08 12:54:33.787#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.collectSystemParametersTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-17###
+[CollectSystemParametersStep] Collecting system parameters...#
+
+#2.0#2020 01 08 12:54:33.964#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.collectSystemParametersTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-17###
+[CollectSystemParametersStep] Default domain: cfapps.eu10.hana.ondemand.com#
+
+#2.0#2020 01 08 12:54:33.964#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.collectSystemParametersTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-17###
+[CollectSystemParametersStep] Checking for overwriting read-only parameters for mta with id: "lev_router"#
+
+#2.0#2020 01 08 12:54:33.964#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.collectSystemParametersTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-17###
+[CollectSystemParametersStep] No read-only parameters are overwritten#
+
+#2.0#2020 01 08 12:54:35.195#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.collectSystemParametersTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-17###
+[CollectSystemParametersStep] Descriptor with system parameters: {
+  "majorSchemaVersion" : 3,
+  "schemaVersion" : "3.1.0",
+  "id" : "lev_router",
+  "version" : "1.0.0",
+  "modules" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "router",
+    "type" : "javascript.nodejs",
+    "properties" : {
+      "XS_APP_LOG_LEVEL" : "debug"
+    },
+    "parameters" : {
+      "default-url" : "${protocol}://${default-uri}",
+      "default-app-name" : "router",
+      "generated-password" : "********",
+      "default-uri" : "${host}.${domain}",
+      "memory" : "128M",
+      "default-instances" : 1,
+      "instances" : "${default-instances}",
+      "default-host" : "p2001634032trial-trial-dev-router",
+      "app-name" : "${default-app-name}",
+      "protocol" : "https",
+      "disk-quota" : "256M",
+      "domain" : "${default-domain}",
+      "host" : "${default-host}",
+      "generated-user" : "Utf0&mJIPu[vvcY2",
+      "timestamp" : "20200108125435"
+    },
+    "requiredDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "lev_router",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "lev_conn",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "lev_dest",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "lev_uaa",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "lev_srv",
+      "group" : "destinations",
+      "properties" : {
+        "name" : "lev_srv",
+        "forwardAuthToken" : true,
+        "url" : "~{url}"
+      },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "providedDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "router",
+      "isPublic" : false,
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "hooks" : [ ]
+  } ],
+  "resources" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "lev_srv",
+    "type" : "configuration",
+    "properties" : { },
+    "parameters" : {
+      "generated-password" : "********",
+      "service-name" : "${default-service-name}",
+      "provider-id" : "lev_backend:lev_srv",
+      "generated-user" : "PRFAVIfJk&Myt]W9",
+      "default-xsappname" : "lev_srv",
+      "type" : "configuration",
+      "default-service-name" : "lev_srv",
+      "version" : ">=0.0.1",
+      "default-container-name" : "P2001634032TRIAL_TRIAL_DEV_LEV_SRV",
+      "provider-nid" : "mta"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "lev_dest",
+    "type" : "org.cloudfoundry.existing-service",
+    "properties" : { },
+    "parameters" : {
+      "generated-password" : "********",
+      "service-name" : "${default-service-name}",
+      "generated-user" : "nHy))UUB)s7@MOGc",
+      "default-xsappname" : "lev_dest",
+      "type" : "existing-service",
+      "default-service-name" : "lev_dest",
+      "default-container-name" : "P2001634032TRIAL_TRIAL_DEV_LEV_DEST"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "lev_conn",
+    "type" : "org.cloudfoundry.existing-service",
+    "properties" : { },
+    "parameters" : {
+      "generated-password" : "********",
+      "service-name" : "${default-service-name}",
+      "generated-user" : "kuOcBsd[2GAWc#_4",
+      "default-xsappname" : "lev_conn",
+      "type" : "existing-service",
+      "default-service-name" : "lev_conn",
+      "default-container-name" : "P2001634032TRIAL_TRIAL_DEV_LEV_CONN"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "lev_uaa",
+    "type" : "org.cloudfoundry.existing-service",
+    "properties" : { },
+    "parameters" : {
+      "generated-password" : "********",
+      "service-name" : "${default-service-name}",
+      "generated-user" : "Pf4NKLaQHRL7OWHL",
+      "default-xsappname" : "lev_uaa",
+      "type" : "existing-service",
+      "default-service-name" : "lev_uaa",
+      "default-container-name" : "P2001634032TRIAL_TRIAL_DEV_LEV_UAA"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "lev_router",
+    "type" : "org.cloudfoundry.existing-service",
+    "properties" : { },
+    "parameters" : {
+      "generated-password" : "********",
+      "service-name" : "${default-service-name}",
+      "generated-user" : "flIdFU(b&Ud)oydV",
+      "default-xsappname" : "lev_router",
+      "type" : "existing-service",
+      "default-service-name" : "lev_router",
+      "default-container-name" : "P2001634032TRIAL_TRIAL_DEV_LEV_ROUTER"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ]
+  } ],
+  "parameters" : {
+    "authorization-url" : "https://login.cf.eu10.hana.ondemand.com",
+    "xs-api-url" : "https://api.cf.eu10.hana.ondemand.com",
+    "deploy-url" : "deploy-service.cfapps.eu10.hana.ondemand.com",
+    "org" : "P2001634032trial_trial",
+    "xs-type" : "CF",
+    "default-domain" : "cfapps.eu10.hana.ondemand.com",
+    "deploy-target" : "P2001634032trial_trial dev",
+    "xs-auth-url" : "https://login.cf.eu10.hana.ondemand.com",
+    "user" : "ANASTASIYA.LESHCHANKA@LEVERX.COM",
+    "space" : "dev",
+    "controller-url" : "https://api.cf.eu10.hana.ondemand.com"
+  },
+  "parametersMetadata" : {
+    "metadata" : { }
+  }
+}#
+
+#2.0#2020 01 08 12:54:35.196#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.collectSystemParametersTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-17###
+[CollectSystemParametersStep] Version rule: SAME_HIGHER#
+
+#2.0#2020 01 08 12:54:35.196#Z#INFO#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.collectSystemParametersTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-17###
+[CollectSystemParametersStep] Detected new MTA version: "1.0.0"#
+
+#2.0#2020 01 08 12:54:35.199#Z#INFO#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.collectSystemParametersTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-17###
+[CollectSystemParametersStep] Deployed MTA version: "1.0.0"#
+
+#2.0#2020 01 08 12:54:35.202#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.collectSystemParametersTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-17###
+[CollectSystemParametersStep] MTA accepted for deployment#
+
+#2.0#2020 01 08 12:54:35.202#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.collectSystemParametersTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-17###
+[CollectSystemParametersStep] System parameters collected#
+
+#2.0#2020 01 08 12:54:35.203#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.collectSystemParametersTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-17###
+Step "Collect System Parameters" finished#
+
+#2.0#2020 01 08 12:54:35.225#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.processDescriptorTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-19###
+[XS2ProcessDescriptorStep] Executing task "processDescriptorTask" of process "0354cd8c-3216-11ea-bee7-eeee0a8713b8"...#
+
+#2.0#2020 01 08 12:54:35.230#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.processDescriptorTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-19###
+[XS2ProcessDescriptorStep] Resolved deployment descriptor with ZDM enhancements: {
+  "majorSchemaVersion" : 3,
+  "schemaVersion" : "3.1.0",
+  "id" : "lev_router",
+  "version" : "1.0.0",
+  "modules" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "router",
+    "type" : "javascript.nodejs",
+    "properties" : {
+      "XS_APP_LOG_LEVEL" : "debug"
+    },
+    "parameters" : {
+      "default-url" : "${protocol}://${default-uri}",
+      "default-app-name" : "router",
+      "generated-password" : "********",
+      "default-uri" : "${host}.${domain}",
+      "memory" : "128M",
+      "default-instances" : 1,
+      "instances" : "${default-instances}",
+      "default-host" : "p2001634032trial-trial-dev-router",
+      "app-name" : "${default-app-name}",
+      "protocol" : "https",
+      "disk-quota" : "256M",
+      "domain" : "${default-domain}",
+      "host" : "${default-host}",
+      "generated-user" : "Utf0&mJIPu[vvcY2",
+      "timestamp" : "20200108125435"
+    },
+    "requiredDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "lev_router",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "lev_conn",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "lev_dest",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "lev_uaa",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "lev_srv",
+      "group" : "destinations",
+      "properties" : {
+        "name" : "lev_srv",
+        "forwardAuthToken" : true,
+        "url" : "~{url}"
+      },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "providedDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "router",
+      "isPublic" : false,
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "hooks" : [ ]
+  } ],
+  "resources" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "lev_srv",
+    "type" : "configuration",
+    "properties" : { },
+    "parameters" : {
+      "generated-password" : "********",
+      "service-name" : "${default-service-name}",
+      "provider-id" : "lev_backend:lev_srv",
+      "generated-user" : "PRFAVIfJk&Myt]W9",
+      "default-xsappname" : "lev_srv",
+      "type" : "configuration",
+      "default-service-name" : "lev_srv",
+      "version" : ">=0.0.1",
+      "default-container-name" : "P2001634032TRIAL_TRIAL_DEV_LEV_SRV",
+      "provider-nid" : "mta"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "lev_dest",
+    "type" : "org.cloudfoundry.existing-service",
+    "properties" : { },
+    "parameters" : {
+      "generated-password" : "********",
+      "service-name" : "${default-service-name}",
+      "generated-user" : "nHy))UUB)s7@MOGc",
+      "default-xsappname" : "lev_dest",
+      "type" : "existing-service",
+      "default-service-name" : "lev_dest",
+      "default-container-name" : "P2001634032TRIAL_TRIAL_DEV_LEV_DEST"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "lev_conn",
+    "type" : "org.cloudfoundry.existing-service",
+    "properties" : { },
+    "parameters" : {
+      "generated-password" : "********",
+      "service-name" : "${default-service-name}",
+      "generated-user" : "kuOcBsd[2GAWc#_4",
+      "default-xsappname" : "lev_conn",
+      "type" : "existing-service",
+      "default-service-name" : "lev_conn",
+      "default-container-name" : "P2001634032TRIAL_TRIAL_DEV_LEV_CONN"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "lev_uaa",
+    "type" : "org.cloudfoundry.existing-service",
+    "properties" : { },
+    "parameters" : {
+      "generated-password" : "********",
+      "service-name" : "${default-service-name}",
+      "generated-user" : "Pf4NKLaQHRL7OWHL",
+      "default-xsappname" : "lev_uaa",
+      "type" : "existing-service",
+      "default-service-name" : "lev_uaa",
+      "default-container-name" : "P2001634032TRIAL_TRIAL_DEV_LEV_UAA"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "lev_router",
+    "type" : "org.cloudfoundry.existing-service",
+    "properties" : { },
+    "parameters" : {
+      "generated-password" : "********",
+      "service-name" : "${default-service-name}",
+      "generated-user" : "flIdFU(b&Ud)oydV",
+      "default-xsappname" : "lev_router",
+      "type" : "existing-service",
+      "default-service-name" : "lev_router",
+      "default-container-name" : "P2001634032TRIAL_TRIAL_DEV_LEV_ROUTER"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ]
+  } ],
+  "parameters" : {
+    "authorization-url" : "https://login.cf.eu10.hana.ondemand.com",
+    "xs-api-url" : "https://api.cf.eu10.hana.ondemand.com",
+    "deploy-url" : "deploy-service.cfapps.eu10.hana.ondemand.com",
+    "org" : "P2001634032trial_trial",
+    "xs-type" : "CF",
+    "default-domain" : "cfapps.eu10.hana.ondemand.com",
+    "deploy-target" : "P2001634032trial_trial dev",
+    "xs-auth-url" : "https://login.cf.eu10.hana.ondemand.com",
+    "user" : "ANASTASIYA.LESHCHANKA@LEVERX.COM",
+    "space" : "dev",
+    "controller-url" : "https://api.cf.eu10.hana.ondemand.com"
+  },
+  "parametersMetadata" : {
+    "metadata" : { }
+  }
+}#
+
+#2.0#2020 01 08 12:54:35.232#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.processDescriptorTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-19###
+[XS2ProcessDescriptorStep] Resolving properties and parameters in merged descriptor...#
+
+#2.0#2020 01 08 12:54:35.235#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.processDescriptorTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-19###
+[XS2ProcessDescriptorStep] Subscriptions: [ ]#
+
+#2.0#2020 01 08 12:54:35.235#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.processDescriptorTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-19###
+[XS2ProcessDescriptorStep] MTA Modules: [router]#
+
+#2.0#2020 01 08 12:54:35.236#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.processDescriptorTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-19###
+[XS2ProcessDescriptorStep] Resolved deployment descriptor: {
+  "majorSchemaVersion" : 3,
+  "schemaVersion" : "3.1.0",
+  "id" : "lev_router",
+  "version" : "1.0.0",
+  "modules" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "router",
+    "type" : "javascript.nodejs",
+    "properties" : {
+      "XS_APP_LOG_LEVEL" : "debug"
+    },
+    "parameters" : {
+      "default-url" : "https://p2001634032trial-trial-dev-router.cfapps.eu10.hana.ondemand.com",
+      "default-app-name" : "router",
+      "generated-password" : "********",
+      "default-uri" : "p2001634032trial-trial-dev-router.cfapps.eu10.hana.ondemand.com",
+      "memory" : "128M",
+      "default-instances" : 1,
+      "instances" : 1,
+      "default-host" : "p2001634032trial-trial-dev-router",
+      "app-name" : "router",
+      "protocol" : "https",
+      "disk-quota" : "256M",
+      "domain" : "cfapps.eu10.hana.ondemand.com",
+      "host" : "p2001634032trial-trial-dev-router",
+      "generated-user" : "Utf0&mJIPu[vvcY2",
+      "timestamp" : "20200108125435"
+    },
+    "requiredDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "lev_router",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "lev_conn",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "lev_dest",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "lev_uaa",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "lev_srv",
+      "group" : "destinations",
+      "properties" : {
+        "name" : "lev_srv",
+        "forwardAuthToken" : true,
+        "url" : "https://p2001634032trial-trial-dev-lev-srv.cfapps.eu10.hana.ondemand.com"
+      },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "providedDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "router",
+      "isPublic" : false,
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "hooks" : [ ]
+  } ],
+  "resources" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "lev_srv",
+    "properties" : {
+      "url" : "https://p2001634032trial-trial-dev-lev-srv.cfapps.eu10.hana.ondemand.com"
+    },
+    "parameters" : {
+      "generated-password" : "********",
+      "service-name" : "lev_srv",
+      "generated-user" : "PRFAVIfJk&Myt]W9",
+      "default-xsappname" : "lev_srv",
+      "type" : "configuration",
+      "default-service-name" : "lev_srv",
+      "default-container-name" : "P2001634032TRIAL_TRIAL_DEV_LEV_SRV"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "lev_dest",
+    "type" : "org.cloudfoundry.existing-service",
+    "properties" : { },
+    "parameters" : {
+      "generated-password" : "********",
+      "service-name" : "lev_dest",
+      "generated-user" : "nHy))UUB)s7@MOGc",
+      "default-xsappname" : "lev_dest",
+      "type" : "existing-service",
+      "default-service-name" : "lev_dest",
+      "default-container-name" : "P2001634032TRIAL_TRIAL_DEV_LEV_DEST"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "lev_conn",
+    "type" : "org.cloudfoundry.existing-service",
+    "properties" : { },
+    "parameters" : {
+      "generated-password" : "********",
+      "service-name" : "lev_conn",
+      "generated-user" : "kuOcBsd[2GAWc#_4",
+      "default-xsappname" : "lev_conn",
+      "type" : "existing-service",
+      "default-service-name" : "lev_conn",
+      "default-container-name" : "P2001634032TRIAL_TRIAL_DEV_LEV_CONN"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "lev_uaa",
+    "type" : "org.cloudfoundry.existing-service",
+    "properties" : { },
+    "parameters" : {
+      "generated-password" : "********",
+      "service-name" : "lev_uaa",
+      "generated-user" : "Pf4NKLaQHRL7OWHL",
+      "default-xsappname" : "lev_uaa",
+      "type" : "existing-service",
+      "default-service-name" : "lev_uaa",
+      "default-container-name" : "P2001634032TRIAL_TRIAL_DEV_LEV_UAA"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "lev_router",
+    "type" : "org.cloudfoundry.existing-service",
+    "properties" : { },
+    "parameters" : {
+      "generated-password" : "********",
+      "service-name" : "lev_router",
+      "generated-user" : "flIdFU(b&Ud)oydV",
+      "default-xsappname" : "lev_router",
+      "type" : "existing-service",
+      "default-service-name" : "lev_router",
+      "default-container-name" : "P2001634032TRIAL_TRIAL_DEV_LEV_ROUTER"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ]
+  } ],
+  "parameters" : {
+    "authorization-url" : "https://login.cf.eu10.hana.ondemand.com",
+    "xs-api-url" : "https://api.cf.eu10.hana.ondemand.com",
+    "deploy-url" : "deploy-service.cfapps.eu10.hana.ondemand.com",
+    "org" : "P2001634032trial_trial",
+    "xs-type" : "CF",
+    "default-domain" : "cfapps.eu10.hana.ondemand.com",
+    "deploy-target" : "P2001634032trial_trial dev",
+    "xs-auth-url" : "https://login.cf.eu10.hana.ondemand.com",
+    "user" : "ANASTASIYA.LESHCHANKA@LEVERX.COM",
+    "space" : "dev",
+    "controller-url" : "https://api.cf.eu10.hana.ondemand.com"
+  },
+  "parametersMetadata" : {
+    "metadata" : { }
+  }
+}#
+
+#2.0#2020 01 08 12:54:35.236#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.processDescriptorTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-19###
+[XS2ProcessDescriptorStep] Merged descriptor properties and parameters resolved#
+
+#2.0#2020 01 08 12:54:35.237#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.processDescriptorTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-19###
+Step "Process Descriptor Step" finished#
+
+#2.0#2020 01 08 12:54:35.260#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.buildDeployModelTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-2###
+[XS2BuildCloudDeployModelStep] Executing task "buildDeployModelTask" of process "0354cd8c-3216-11ea-bee7-eeee0a8713b8"...#
+
+#2.0#2020 01 08 12:54:35.264#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.buildDeployModelTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-2###
+[XS2BuildCloudDeployModelStep] Building cloud deployment model...#
+
+#2.0#2020 01 08 12:54:35.266#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.buildDeployModelTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-2###
+[XS2BuildCloudDeployModelStep] MTA archive modules: [router]#
+
+#2.0#2020 01 08 12:54:35.267#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.buildDeployModelTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-2###
+[XS2BuildCloudDeployModelStep] Deployed modules: [router]#
+
+#2.0#2020 01 08 12:54:35.267#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.buildDeployModelTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-2###
+[XS2BuildCloudDeployModelStep] MTA modules: [router]#
+
+#2.0#2020 01 08 12:54:35.268#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.buildDeployModelTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-2###
+[XS2BuildCloudDeployModelStep] Service keys to create: {
+  "lev_uaa" : [ ],
+  "lev_conn" : [ ],
+  "lev_router" : [ ],
+  "lev_dest" : [ ]
+}#
+
+#2.0#2020 01 08 12:54:35.268#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.buildDeployModelTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-2###
+[XS2BuildCloudDeployModelStep] Modules to deploy: [ {
+  "majorSchemaVersion" : 3,
+  "name" : "router",
+  "type" : "javascript.nodejs",
+  "properties" : {
+    "XS_APP_LOG_LEVEL" : "debug"
+  },
+  "parameters" : {
+    "app-name" : "router",
+    "default-app-name" : "router",
+    "default-host" : "p2001634032trial-trial-dev-router",
+    "default-instances" : 1,
+    "default-uri" : "p2001634032trial-trial-dev-router.cfapps.eu10.hana.ondemand.com",
+    "default-url" : "https://p2001634032trial-trial-dev-router.cfapps.eu10.hana.ondemand.com",
+    "dependency-type" : "soft",
+    "disk-quota" : "256M",
+    "domain" : "cfapps.eu10.hana.ondemand.com",
+    "generated-password" : "********",
+    "generated-user" : "Utf0&mJIPu[vvcY2",
+    "host" : "p2001634032trial-trial-dev-router",
+    "instances" : 1,
+    "memory" : "128M",
+    "protocol" : "https",
+    "timestamp" : "20200108125435"
+  },
+  "requiredDependencies" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "lev_router",
+    "properties" : { },
+    "parameters" : { },
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    }
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "lev_conn",
+    "properties" : { },
+    "parameters" : { },
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    }
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "lev_dest",
+    "properties" : { },
+    "parameters" : { },
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    }
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "lev_uaa",
+    "properties" : { },
+    "parameters" : { },
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    }
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "lev_srv",
+    "group" : "destinations",
+    "properties" : {
+      "forwardAuthToken" : true,
+      "name" : "lev_srv",
+      "url" : "https://p2001634032trial-trial-dev-lev-srv.cfapps.eu10.hana.ondemand.com"
+    },
+    "parameters" : { },
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    }
+  } ],
+  "providedDependencies" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "router",
+    "isPublic" : false,
+    "properties" : { },
+    "parameters" : { },
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    }
+  } ],
+  "propertiesMetadata" : {
+    "metadata" : { }
+  },
+  "parametersMetadata" : {
+    "metadata" : { }
+  },
+  "hooks" : [ ]
+} ]#
+
+#2.0#2020 01 08 12:54:35.269#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.buildDeployModelTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-2###
+[XS2BuildCloudDeployModelStep] Custom domains: []#
+
+#2.0#2020 01 08 12:54:35.269#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.buildDeployModelTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-2###
+[XS2BuildCloudDeployModelStep] Services to create: [ ]#
+
+#2.0#2020 01 08 12:54:35.269#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.buildDeployModelTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-2###
+[XS2BuildCloudDeployModelStep] Cloud deployment model built#
+
+#2.0#2020 01 08 12:54:35.270#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.buildDeployModelTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-2###
+Step "Build Deploy Model" finished#
+
+#2.0#2020 01 08 12:54:35.300#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.buildUndeployModelTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-21###
+[BuildCloudUndeployModelStep] Executing task "buildUndeployModelTask" of process "0354cd8c-3216-11ea-bee7-eeee0a8713b8"...#
+
+#2.0#2020 01 08 12:54:35.303#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.buildUndeployModelTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-21###
+[BuildCloudUndeployModelStep] Building cloud undeployment model...#
+
+#2.0#2020 01 08 12:54:35.308#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.buildUndeployModelTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-21###
+[BuildCloudUndeployModelStep] MTA modules: [router]#
+
+#2.0#2020 01 08 12:54:35.308#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.buildUndeployModelTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-21###
+[BuildCloudUndeployModelStep] Modules to undeploy: [ ]#
+
+#2.0#2020 01 08 12:54:35.308#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.buildUndeployModelTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-21###
+[BuildCloudUndeployModelStep] Modules that wont be changed: {0}#
+
+#2.0#2020 01 08 12:54:35.309#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.buildUndeployModelTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-21###
+[BuildCloudUndeployModelStep] Subscriptions to delete: [ ]#
+
+#2.0#2020 01 08 12:54:35.310#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.buildUndeployModelTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-21###
+[BuildCloudUndeployModelStep] Cloud services to delete: []#
+
+#2.0#2020 01 08 12:54:35.310#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.buildUndeployModelTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-21###
+[BuildCloudUndeployModelStep] Cloud applications to undeploy: [ ]#
+
+#2.0#2020 01 08 12:54:35.311#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.buildUndeployModelTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-21###
+[BuildCloudUndeployModelStep] Cloud undeployment model built#
+
+#2.0#2020 01 08 12:54:35.312#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.buildUndeployModelTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-21###
+Step "Build Undeploy Model" finished#
+
+#2.0#2020 01 08 12:54:35.337#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.checkForCreationConflictsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-22###
+[CheckForCreationConflictsStep] Executing task "checkForCreationConflictsTask" of process "0354cd8c-3216-11ea-bee7-eeee0a8713b8"...#
+
+#2.0#2020 01 08 12:54:35.342#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.checkForCreationConflictsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-22###
+[CheckForCreationConflictsStep] Validating services to create...#
+
+#2.0#2020 01 08 12:54:40.358#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.checkForCreationConflictsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-22###
+[CheckForCreationConflictsStep] Services to create successfully validated#
+
+#2.0#2020 01 08 12:54:40.359#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.checkForCreationConflictsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-22###
+[CheckForCreationConflictsStep] Validating applications to deploy...#
+
+#2.0#2020 01 08 12:54:40.360#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.checkForCreationConflictsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-22###
+[CheckForCreationConflictsStep] Trying to validate association of application "router"#
+
+#2.0#2020 01 08 12:54:40.360#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.checkForCreationConflictsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-22###
+[CheckForCreationConflictsStep] Applications to deploy successfully validated#
+
+#2.0#2020 01 08 12:54:40.361#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.checkForCreationConflictsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-22###
+Step "Check For Creation Conflicts" finished#
+
+#2.0#2020 01 08 12:54:40.382#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.addDomainsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-28###
+[AddDomainsStep] Executing task "addDomainsTask" of process "0354cd8c-3216-11ea-bee7-eeee0a8713b8"...#
+
+#2.0#2020 01 08 12:54:40.386#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.addDomainsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-28###
+[AddDomainsStep] Custom domains: []#
+
+#2.0#2020 01 08 12:54:40.387#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.addDomainsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-28###
+Step "Add Domains" finished#
+
+#2.0#2020 01 08 12:54:40.417#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.prepareModulesDeploymentTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-30###
+[PrepareModulesDeploymentStep] Executing task "prepareModulesDeploymentTask" of process "08a4d172-3216-11ea-bee7-eeee0a8713b8"...#
+
+#2.0#2020 01 08 12:54:40.421#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.prepareModulesDeploymentTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-30###
+[PrepareModulesDeploymentStep] Preparing modules deployment...#
+
+#2.0#2020 01 08 12:54:40.425#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.prepareModulesDeploymentTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-30###
+Step "Prepare Modules Deployment" finished#
+
+#2.0#2020 01 08 12:54:40.535#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.reprocessDescriptorTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6###
+[XS2ProcessDescriptorStep] Executing task "reprocessDescriptorTask" of process "08b302d1-3216-11ea-bee7-eeee0a8713b8"...#
+
+#2.0#2020 01 08 12:54:40.540#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.reprocessDescriptorTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6###
+[XS2ProcessDescriptorStep] Resolved deployment descriptor with ZDM enhancements: {
+  "majorSchemaVersion" : 3,
+  "schemaVersion" : "3.1.0",
+  "id" : "lev_router",
+  "version" : "1.0.0",
+  "modules" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "router",
+    "type" : "javascript.nodejs",
+    "properties" : {
+      "XS_APP_LOG_LEVEL" : "debug"
+    },
+    "parameters" : {
+      "default-url" : "${protocol}://${default-uri}",
+      "default-app-name" : "router",
+      "generated-password" : "********",
+      "default-uri" : "${host}.${domain}",
+      "memory" : "128M",
+      "default-instances" : 1,
+      "instances" : "${default-instances}",
+      "default-host" : "p2001634032trial-trial-dev-router",
+      "app-name" : "${default-app-name}",
+      "protocol" : "https",
+      "disk-quota" : "256M",
+      "domain" : "${default-domain}",
+      "host" : "${default-host}",
+      "generated-user" : "Utf0&mJIPu[vvcY2",
+      "timestamp" : "20200108125435"
+    },
+    "requiredDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "lev_router",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "lev_conn",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "lev_dest",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "lev_uaa",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "lev_srv",
+      "group" : "destinations",
+      "properties" : {
+        "name" : "lev_srv",
+        "forwardAuthToken" : true,
+        "url" : "~{url}"
+      },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "providedDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "router",
+      "isPublic" : false,
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "hooks" : [ ]
+  } ],
+  "resources" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "lev_srv",
+    "type" : "configuration",
+    "properties" : { },
+    "parameters" : {
+      "generated-password" : "********",
+      "service-name" : "${default-service-name}",
+      "provider-id" : "lev_backend:lev_srv",
+      "generated-user" : "PRFAVIfJk&Myt]W9",
+      "default-xsappname" : "lev_srv",
+      "type" : "configuration",
+      "default-service-name" : "lev_srv",
+      "version" : ">=0.0.1",
+      "default-container-name" : "P2001634032TRIAL_TRIAL_DEV_LEV_SRV",
+      "provider-nid" : "mta"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "lev_dest",
+    "type" : "org.cloudfoundry.existing-service",
+    "properties" : { },
+    "parameters" : {
+      "generated-password" : "********",
+      "service-name" : "${default-service-name}",
+      "generated-user" : "nHy))UUB)s7@MOGc",
+      "default-xsappname" : "lev_dest",
+      "type" : "existing-service",
+      "default-service-name" : "lev_dest",
+      "default-container-name" : "P2001634032TRIAL_TRIAL_DEV_LEV_DEST"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "lev_conn",
+    "type" : "org.cloudfoundry.existing-service",
+    "properties" : { },
+    "parameters" : {
+      "generated-password" : "********",
+      "service-name" : "${default-service-name}",
+      "generated-user" : "kuOcBsd[2GAWc#_4",
+      "default-xsappname" : "lev_conn",
+      "type" : "existing-service",
+      "default-service-name" : "lev_conn",
+      "default-container-name" : "P2001634032TRIAL_TRIAL_DEV_LEV_CONN"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "lev_uaa",
+    "type" : "org.cloudfoundry.existing-service",
+    "properties" : { },
+    "parameters" : {
+      "generated-password" : "********",
+      "service-name" : "${default-service-name}",
+      "generated-user" : "Pf4NKLaQHRL7OWHL",
+      "default-xsappname" : "lev_uaa",
+      "type" : "existing-service",
+      "default-service-name" : "lev_uaa",
+      "default-container-name" : "P2001634032TRIAL_TRIAL_DEV_LEV_UAA"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "lev_router",
+    "type" : "org.cloudfoundry.existing-service",
+    "properties" : { },
+    "parameters" : {
+      "generated-password" : "********",
+      "service-name" : "${default-service-name}",
+      "generated-user" : "flIdFU(b&Ud)oydV",
+      "default-xsappname" : "lev_router",
+      "type" : "existing-service",
+      "default-service-name" : "lev_router",
+      "default-container-name" : "P2001634032TRIAL_TRIAL_DEV_LEV_ROUTER"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ]
+  } ],
+  "parameters" : {
+    "authorization-url" : "https://login.cf.eu10.hana.ondemand.com",
+    "xs-api-url" : "https://api.cf.eu10.hana.ondemand.com",
+    "deploy-url" : "deploy-service.cfapps.eu10.hana.ondemand.com",
+    "org" : "P2001634032trial_trial",
+    "xs-type" : "CF",
+    "default-domain" : "cfapps.eu10.hana.ondemand.com",
+    "deploy-target" : "P2001634032trial_trial dev",
+    "xs-auth-url" : "https://login.cf.eu10.hana.ondemand.com",
+    "user" : "ANASTASIYA.LESHCHANKA@LEVERX.COM",
+    "space" : "dev",
+    "controller-url" : "https://api.cf.eu10.hana.ondemand.com"
+  },
+  "parametersMetadata" : {
+    "metadata" : { }
+  }
+}#
+
+#2.0#2020 01 08 12:54:40.542#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.reprocessDescriptorTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6###
+[XS2ProcessDescriptorStep] Resolving properties and parameters in merged descriptor...#
+
+#2.0#2020 01 08 12:54:40.545#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.reprocessDescriptorTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6###
+[XS2ProcessDescriptorStep] Subscriptions: [ ]#
+
+#2.0#2020 01 08 12:54:40.549#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.reprocessDescriptorTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6###
+[XS2ProcessDescriptorStep] MTA Modules: [router]#
+
+#2.0#2020 01 08 12:54:40.551#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.reprocessDescriptorTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6###
+[XS2ProcessDescriptorStep] Resolved deployment descriptor: {
+  "majorSchemaVersion" : 3,
+  "schemaVersion" : "3.1.0",
+  "id" : "lev_router",
+  "version" : "1.0.0",
+  "modules" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "router",
+    "type" : "javascript.nodejs",
+    "properties" : {
+      "XS_APP_LOG_LEVEL" : "debug"
+    },
+    "parameters" : {
+      "default-url" : "https://p2001634032trial-trial-dev-router.cfapps.eu10.hana.ondemand.com",
+      "default-app-name" : "router",
+      "generated-password" : "********",
+      "default-uri" : "p2001634032trial-trial-dev-router.cfapps.eu10.hana.ondemand.com",
+      "memory" : "128M",
+      "default-instances" : 1,
+      "instances" : 1,
+      "default-host" : "p2001634032trial-trial-dev-router",
+      "app-name" : "router",
+      "protocol" : "https",
+      "disk-quota" : "256M",
+      "domain" : "cfapps.eu10.hana.ondemand.com",
+      "host" : "p2001634032trial-trial-dev-router",
+      "generated-user" : "Utf0&mJIPu[vvcY2",
+      "timestamp" : "20200108125435"
+    },
+    "requiredDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "lev_router",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "lev_conn",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "lev_dest",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "lev_uaa",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "lev_srv",
+      "group" : "destinations",
+      "properties" : {
+        "name" : "lev_srv",
+        "forwardAuthToken" : true,
+        "url" : "https://p2001634032trial-trial-dev-lev-srv.cfapps.eu10.hana.ondemand.com"
+      },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "providedDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "router",
+      "isPublic" : false,
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "hooks" : [ ]
+  } ],
+  "resources" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "lev_srv",
+    "properties" : {
+      "url" : "https://p2001634032trial-trial-dev-lev-srv.cfapps.eu10.hana.ondemand.com"
+    },
+    "parameters" : {
+      "generated-password" : "********",
+      "service-name" : "lev_srv",
+      "generated-user" : "PRFAVIfJk&Myt]W9",
+      "default-xsappname" : "lev_srv",
+      "type" : "configuration",
+      "default-service-name" : "lev_srv",
+      "default-container-name" : "P2001634032TRIAL_TRIAL_DEV_LEV_SRV"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "lev_dest",
+    "type" : "org.cloudfoundry.existing-service",
+    "properties" : { },
+    "parameters" : {
+      "generated-password" : "********",
+      "service-name" : "lev_dest",
+      "generated-user" : "nHy))UUB)s7@MOGc",
+      "default-xsappname" : "lev_dest",
+      "type" : "existing-service",
+      "default-service-name" : "lev_dest",
+      "default-container-name" : "P2001634032TRIAL_TRIAL_DEV_LEV_DEST"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "lev_conn",
+    "type" : "org.cloudfoundry.existing-service",
+    "properties" : { },
+    "parameters" : {
+      "generated-password" : "********",
+      "service-name" : "lev_conn",
+      "generated-user" : "kuOcBsd[2GAWc#_4",
+      "default-xsappname" : "lev_conn",
+      "type" : "existing-service",
+      "default-service-name" : "lev_conn",
+      "default-container-name" : "P2001634032TRIAL_TRIAL_DEV_LEV_CONN"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "lev_uaa",
+    "type" : "org.cloudfoundry.existing-service",
+    "properties" : { },
+    "parameters" : {
+      "generated-password" : "********",
+      "service-name" : "lev_uaa",
+      "generated-user" : "Pf4NKLaQHRL7OWHL",
+      "default-xsappname" : "lev_uaa",
+      "type" : "existing-service",
+      "default-service-name" : "lev_uaa",
+      "default-container-name" : "P2001634032TRIAL_TRIAL_DEV_LEV_UAA"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "lev_router",
+    "type" : "org.cloudfoundry.existing-service",
+    "properties" : { },
+    "parameters" : {
+      "generated-password" : "********",
+      "service-name" : "lev_router",
+      "generated-user" : "flIdFU(b&Ud)oydV",
+      "default-xsappname" : "lev_router",
+      "type" : "existing-service",
+      "default-service-name" : "lev_router",
+      "default-container-name" : "P2001634032TRIAL_TRIAL_DEV_LEV_ROUTER"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ]
+  } ],
+  "parameters" : {
+    "authorization-url" : "https://login.cf.eu10.hana.ondemand.com",
+    "xs-api-url" : "https://api.cf.eu10.hana.ondemand.com",
+    "deploy-url" : "deploy-service.cfapps.eu10.hana.ondemand.com",
+    "org" : "P2001634032trial_trial",
+    "xs-type" : "CF",
+    "default-domain" : "cfapps.eu10.hana.ondemand.com",
+    "deploy-target" : "P2001634032trial_trial dev",
+    "xs-auth-url" : "https://login.cf.eu10.hana.ondemand.com",
+    "user" : "ANASTASIYA.LESHCHANKA@LEVERX.COM",
+    "space" : "dev",
+    "controller-url" : "https://api.cf.eu10.hana.ondemand.com"
+  },
+  "parametersMetadata" : {
+    "metadata" : { }
+  }
+}#
+
+#2.0#2020 01 08 12:54:40.551#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.reprocessDescriptorTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6###
+[XS2ProcessDescriptorStep] Merged descriptor properties and parameters resolved#
+
+#2.0#2020 01 08 12:54:40.553#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.reprocessDescriptorTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6###
+Step "Re-Process Descriptor Step" finished#
+
+#2.0#2020 01 08 12:54:40.576#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.buildApplicationDeployModelTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-5###
+[XS2BuildApplicationDeployModelStep] Executing task "buildApplicationDeployModelTask" of process "08b302d1-3216-11ea-bee7-eeee0a8713b8"...#
+
+#2.0#2020 01 08 12:54:40.580#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.buildApplicationDeployModelTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-5###
+[XS2BuildApplicationDeployModelStep] Building cloud deployment model for application "router"...#
+
+#2.0#2020 01 08 12:54:40.584#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.buildApplicationDeployModelTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-5###
+[XS2BuildApplicationDeployModelStep] App with updated environment: {
+  "name" : "router",
+  "memory" : 128,
+  "diskQuota" : 256,
+  "instances" : 1,
+  "runningInstances" : 0,
+  "staging" : {
+    "buildpacks" : [ ]
+  },
+  "uris" : [ "p2001634032trial-trial-dev-router.cfapps.eu10.hana.ondemand.com" ],
+  "services" : [ "lev_router", "lev_conn", "lev_dest", "lev_uaa" ],
+  "env" : {
+    "MTA_METADATA" : "{\n  \"id\" : \"lev_router\",\n  \"version\" : \"1.0.0\"\n}",
+    "MTA_MODULE_METADATA" : "{\n  \"name\" : \"router\"\n}",
+    "MTA_MODULE_PROVIDED_DEPENDENCIES" : "[ ]",
+    "MTA_SERVICES" : "[ ]",
+    "XS_APP_LOG_LEVEL" : "debug",
+    "destinations" : "[ {\n  \"forwardAuthToken\" : true,\n  \"name\" : \"lev_srv\",\n  \"url\" : \"https://p2001634032trial-trial-dev-lev-srv.cfapps.eu10.hana.ondemand.com\"\n} ]"
+  },
+  "moduleName" : "router",
+  "idleUris" : [ ],
+  "bindingParameters" : { },
+  "tasks" : [ ],
+  "routes" : [ ],
+  "serviceKeysToInject" : [ ],
+  "domains" : [ "cfapps.eu10.hana.ondemand.com" ],
+  "restartParameters" : {
+    "shouldRestartOnVcapAppChange" : true,
+    "shouldRestartOnVcapServicesChange" : true,
+    "shouldRestartOnUserProvidedChange" : true
+  },
+  "attributesUpdateStrategy" : {
+    "shouldKeepExistingEnv" : false,
+    "shouldKeepExistingServiceBindings" : false,
+    "shouldKeepExistingRoutes" : false
+  }
+}#
+
+#2.0#2020 01 08 12:54:40.586#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.buildApplicationDeployModelTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-5###
+[XS2BuildApplicationDeployModelStep] Configuration entries to publish: [ ]#
+
+#2.0#2020 01 08 12:54:40.586#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.buildApplicationDeployModelTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-5###
+[XS2BuildApplicationDeployModelStep] Cloud deployment model for application built#
+
+#2.0#2020 01 08 12:54:40.588#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.buildApplicationDeployModelTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-5###
+Step "Build Application Deploy Model" finished#
+
+#2.0#2020 01 08 12:54:40.614#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.createAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-8###
+[CreateOrUpdateAppStep] Executing task "createAppTask" of process "08b302d1-3216-11ea-bee7-eeee0a8713b8"...#
+
+#2.0#2020 01 08 12:54:42.328#Z#INFO#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.createAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-8###
+[CreateOrUpdateAppStep] Updating application "router"...#
+
+#2.0#2020 01 08 12:54:42.331#Z#INFO#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.createAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-8###
+[CreateOrUpdateAppStep] Application "router" attributes are not modified and will not be updated#
+
+#2.0#2020 01 08 12:54:42.338#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.createAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-8###
+[CreateOrUpdateAppStep] Binding parameters for application "router": { }#
+
+#2.0#2020 01 08 12:55:47.780#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.createAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-8###
+[CreateOrUpdateAppStep] Application "router" updated#
+
+#2.0#2020 01 08 12:55:47.782#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.createAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-8###
+Step "Create App" finished#
+
+#2.0#2020 01 08 12:55:47.815#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.uploadAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-23###
+[UploadAppStep] Executing task "uploadAppTask" of process "08b302d1-3216-11ea-bee7-eeee0a8713b8"...#
+
+#2.0#2020 01 08 12:55:47.818#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.uploadAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-23###
+[UploadAppStep] Upload app timeout in seconds: 3,600#
+
+#2.0#2020 01 08 12:55:47.819#Z#INFO#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.uploadAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-23###
+[UploadAppStep] Uploading application "router"...#
+
+#2.0#2020 01 08 12:55:47.821#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.uploadAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-23###
+[UploadAppStep] Uploading file "router/data.zip" for application "router"#
+
+#2.0#2020 01 08 12:55:53.079#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.uploadAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-23###
+[UploadAppStep] Started async upload of application "router"#
+
+#2.0#2020 01 08 12:55:53.081#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.uploadAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-23###
+Step "Upload App" finished#
+
+#2.0#2020 01 08 12:55:59.475#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.uploadAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-16###
+[UploadAppStep] Executing task "uploadAppTask" of process "08b302d1-3216-11ea-bee7-eeee0a8713b8"...#
+
+#2.0#2020 01 08 12:55:59.478#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.uploadAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-16###
+[UploadAppStep] Upload app timeout in seconds: 3,600#
+
+#2.0#2020 01 08 12:55:59.479#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.uploadAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-16###
+[UploadAppStep] Checking upload status of application "router"...#
+
+#2.0#2020 01 08 12:56:00.147#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.uploadAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-16###
+Step "Upload App" finished#
+
+#2.0#2020 01 08 12:56:09.449#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.uploadAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-32###
+[UploadAppStep] Executing task "uploadAppTask" of process "08b302d1-3216-11ea-bee7-eeee0a8713b8"...#
+
+#2.0#2020 01 08 12:56:09.454#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.uploadAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-32###
+[UploadAppStep] Upload app timeout in seconds: 3,600#
+
+#2.0#2020 01 08 12:56:09.454#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.uploadAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-32###
+[UploadAppStep] Checking upload status of application "router"...#
+
+#2.0#2020 01 08 12:56:10.253#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.uploadAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-32###
+[UploadAppStep] Application "router" uploaded#
+
+#2.0#2020 01 08 12:56:10.256#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.uploadAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-32###
+Step "Upload App" finished#
+
+#2.0#2020 01 08 12:56:10.287#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.scaleAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-13###
+[ScaleAppStep] Executing task "scaleAppTask" of process "08b302d1-3216-11ea-bee7-eeee0a8713b8"...#
+
+#2.0#2020 01 08 12:56:10.293#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.scaleAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-13###
+[ScaleAppStep] Scaling application "router"...#
+
+#2.0#2020 01 08 12:56:10.293#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.scaleAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-13###
+[ScaleAppStep] Application "router" scaled#
+
+#2.0#2020 01 08 12:56:10.295#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.scaleAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-13###
+Step "Scale App" finished#
+
+#2.0#2020 01 08 12:56:10.320#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.determineDesiredStateAchievingActionsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-25###
+[DetermineDesiredStateAchievingActionsStep] Executing task "determineDesiredStateAchievingActionsTask" of process "08b302d1-3216-11ea-bee7-eeee0a8713b8"...#
+
+#2.0#2020 01 08 12:56:10.987#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.determineDesiredStateAchievingActionsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-25###
+[DetermineDesiredStateAchievingActionsStep] Current state of application router: STOPPED#
+
+#2.0#2020 01 08 12:56:10.988#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.determineDesiredStateAchievingActionsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-25###
+[DetermineDesiredStateAchievingActionsStep] Desired state of application router: STARTED#
+
+#2.0#2020 01 08 12:56:14.116#Z#INFO#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.determineDesiredStateAchievingActionsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-25###
+[DetermineDesiredStateAchievingActionsStep] Application "router" was not staged correctly during the previous deployment#
+
+#2.0#2020 01 08 12:56:14.129#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.determineDesiredStateAchievingActionsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-25###
+[DetermineDesiredStateAchievingActionsStep] Last build: {"metadata":{"guid":"69634a86-0e49-468d-8454-1fd625e566da","createdAt":1578485256000,"updatedAt":1578485270000},"state":"FAILED","createdBy":{"guid":"b6ab1b36-761f-4aa0-a98f-88092cb941c2","name":"ANASTASIYA.LESHCHANKA@LEVERX.COM"},"packageInfo":{"guid":"c34200a4-9aec-402c-92d9-b250908bb9bc"},"error":"BuildpackCompileFailed - App staging failed in the buildpack compile phase"}#
+
+#2.0#2020 01 08 12:56:14.129#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.determineDesiredStateAchievingActionsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-25###
+[DetermineDesiredStateAchievingActionsStep] Actions that should be executed on application router: [START, STAGE]#
+
+#2.0#2020 01 08 12:56:14.132#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.determineDesiredStateAchievingActionsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-25###
+Step "Determine Desired State Achieving Actions" finished#
+
+#2.0#2020 01 08 12:55:53.285#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.uploadAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########App upload monitor: 6f3e13f8-b727-4aaa-a5bc-87963a4acb48###
+[UploadAppStep] Upload status: PROCESSING_UPLOAD#
+
+#2.0#2020 01 08 12:55:58.547#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.uploadAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########App upload monitor: 6f3e13f8-b727-4aaa-a5bc-87963a4acb48###
+[UploadAppStep] Upload status: PROCESSING_UPLOAD#
+
+#2.0#2020 01 08 12:56:03.887#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.uploadAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########App upload monitor: 6f3e13f8-b727-4aaa-a5bc-87963a4acb48###
+[UploadAppStep] Upload status: PROCESSING_UPLOAD#
+
+#2.0#2020 01 08 12:56:09.069#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.uploadAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########App upload monitor: 6f3e13f8-b727-4aaa-a5bc-87963a4acb48###
+[UploadAppStep] Upload status: PROCESSING_UPLOAD#
+
+#2.0#2020 01 08 12:56:14.238#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.uploadAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########App upload monitor: 6f3e13f8-b727-4aaa-a5bc-87963a4acb48###
+[UploadAppStep] Upload status: READY#
+
+#2.0#2020 01 08 12:56:14.238#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.uploadAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########App upload monitor: 6f3e13f8-b727-4aaa-a5bc-87963a4acb48###
+[UploadAppStep] Deleting temp file: META-INF/.sap_java_buildpack/tomcat/temp/7587216571495678940.zip#
+
+#2.0#2020 01 08 12:56:14.170#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-23###
+[StageAppStep] Executing task "stageAppTask" of process "08b302d1-3216-11ea-bee7-eeee0a8713b8"...#
+
+#2.0#2020 01 08 12:56:14.176#Z#INFO#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-23###
+[StageAppStep] Staging application "router"...#
+
+#2.0#2020 01 08 12:56:17.551#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-23###
+Step "Stage App" finished#
+
+#2.0#2020 01 08 12:56:29.578#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-27###
+[StageAppStep] Executing task "stageAppTask" of process "08b302d1-3216-11ea-bee7-eeee0a8713b8"...#
+
+#2.0#2020 01 08 12:56:29.582#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-27###
+[StageAppStep] Checking status of application "router"...#
+
+#2.0#2020 01 08 12:56:29.731#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-27###
+[StageAppStep] Staging status of application "router": FAILED#
+
+#2.0#2020 01 08 12:56:30.661#Z#ERROR#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-27###
+[StageAppStep] Staging of application "router" failed. Download the application logs via the dmol command and check them for more information.#
+
+#2.0#2020 01 08 12:56:30.664#Z#ERROR#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-27###
+[StageAppStep] BuildpackCompileFailed - App staging failed in the buildpack compile phase#
+
+#2.0#2020 01 08 12:56:30.667#Z#ERROR#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-27###
+Exception caught#
+
+com.sap.cloud.lm.sl.common.SLException: A step of the process has failed. Retrying it may solve the issue.
+	at com.sap.cloud.lm.sl.cf.process.steps.SyncFlowableStep.executeInternal(SyncFlowableStep.java:69)
+	at com.sap.cloud.lm.sl.cf.process.steps.SyncFlowableStep.lambda$execute$0(SyncFlowableStep.java:58)
+	at com.sap.cloud.lm.sl.cf.core.util.LoggingUtil.logWithCorrelationId(LoggingUtil.java:15)
+	at com.sap.cloud.lm.sl.cf.process.steps.SyncFlowableStep.execute(SyncFlowableStep.java:58)
+	at org.flowable.engine.impl.delegate.invocation.JavaDelegateInvocation.invoke(JavaDelegateInvocation.java:35)
+	at org.flowable.engine.impl.delegate.invocation.DelegateInvocation.proceed(DelegateInvocation.java:35)
+	at org.flowable.engine.impl.delegate.invocation.DefaultDelegateInterceptor.handleInvocation(DefaultDelegateInterceptor.java:26)
+	at org.flowable.engine.impl.bpmn.behavior.ServiceTaskDelegateExpressionActivityBehavior.execute(ServiceTaskDelegateExpressionActivityBehavior.java:111)
+	at org.flowable.engine.impl.agenda.ContinueProcessOperation.executeActivityBehavior(ContinueProcessOperation.java:275)
+	at org.flowable.engine.impl.agenda.ContinueProcessOperation.executeSynchronous(ContinueProcessOperation.java:159)
+	at org.flowable.engine.impl.agenda.ContinueProcessOperation.continueThroughFlowNode(ContinueProcessOperation.java:114)
+	at org.flowable.engine.impl.agenda.ContinueProcessOperation.run(ContinueProcessOperation.java:78)
+	at org.flowable.engine.impl.interceptor.CommandInvoker.executeOperation(CommandInvoker.java:88)
+	at org.flowable.engine.impl.interceptor.CommandInvoker.executeOperations(CommandInvoker.java:72)
+	at org.flowable.engine.impl.interceptor.CommandInvoker.execute(CommandInvoker.java:56)
+	at org.flowable.engine.impl.interceptor.BpmnOverrideContextInterceptor.execute(BpmnOverrideContextInterceptor.java:25)
+	at org.flowable.common.engine.impl.interceptor.TransactionContextInterceptor.execute(TransactionContextInterceptor.java:53)
+	at org.flowable.common.engine.impl.interceptor.CommandContextInterceptor.execute(CommandContextInterceptor.java:72)
+	at org.flowable.common.spring.SpringTransactionInterceptor.lambda$execute$0(SpringTransactionInterceptor.java:56)
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140)
+	at org.flowable.common.spring.SpringTransactionInterceptor.execute(SpringTransactionInterceptor.java:56)
+	at org.flowable.common.engine.impl.interceptor.LogInterceptor.execute(LogInterceptor.java:30)
+	at org.flowable.common.engine.impl.cfg.CommandExecutorImpl.execute(CommandExecutorImpl.java:56)
+	at org.flowable.common.engine.impl.cfg.CommandExecutorImpl.execute(CommandExecutorImpl.java:51)
+	at org.flowable.job.service.impl.asyncexecutor.ExecuteAsyncRunnable.executeJob(ExecuteAsyncRunnable.java:128)
+	at org.flowable.job.service.impl.asyncexecutor.ExecuteAsyncRunnable.run(ExecuteAsyncRunnable.java:116)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:836)
+#2.0#2020 01 08 12:56:30.672#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-27###
+Step "Stage App" finished#
+
+#2.0#2020 01 08 12:56:32.031#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-30###
+[StageAppStep] Executing task "stageAppTask" of process "08b302d1-3216-11ea-bee7-eeee0a8713b8"...#
+
+#2.0#2020 01 08 12:56:32.689#Z#INFO#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-30###
+[StageAppStep] Staging application "router"...#
+
+#2.0#2020 01 08 12:56:34.896#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-30###
+Step "Stage App" finished#
+
+#2.0#2020 01 08 12:56:49.594#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6###
+[StageAppStep] Executing task "stageAppTask" of process "08b302d1-3216-11ea-bee7-eeee0a8713b8"...#
+
+#2.0#2020 01 08 12:56:49.598#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6###
+[StageAppStep] Checking status of application "router"...#
+
+#2.0#2020 01 08 12:56:49.738#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6###
+[StageAppStep] Staging status of application "router": FAILED#
+
+#2.0#2020 01 08 12:56:51.598#Z#ERROR#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6###
+[StageAppStep] Staging of application "router" failed. Download the application logs via the dmol command and check them for more information.#
+
+#2.0#2020 01 08 12:56:51.601#Z#ERROR#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6###
+[StageAppStep] BuildpackCompileFailed - App staging failed in the buildpack compile phase#
+
+#2.0#2020 01 08 12:56:51.604#Z#ERROR#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6###
+Exception caught#
+
+com.sap.cloud.lm.sl.common.SLException: A step of the process has failed. Retrying it may solve the issue.
+	at com.sap.cloud.lm.sl.cf.process.steps.SyncFlowableStep.executeInternal(SyncFlowableStep.java:69)
+	at com.sap.cloud.lm.sl.cf.process.steps.SyncFlowableStep.lambda$execute$0(SyncFlowableStep.java:58)
+	at com.sap.cloud.lm.sl.cf.core.util.LoggingUtil.logWithCorrelationId(LoggingUtil.java:15)
+	at com.sap.cloud.lm.sl.cf.process.steps.SyncFlowableStep.execute(SyncFlowableStep.java:58)
+	at org.flowable.engine.impl.delegate.invocation.JavaDelegateInvocation.invoke(JavaDelegateInvocation.java:35)
+	at org.flowable.engine.impl.delegate.invocation.DelegateInvocation.proceed(DelegateInvocation.java:35)
+	at org.flowable.engine.impl.delegate.invocation.DefaultDelegateInterceptor.handleInvocation(DefaultDelegateInterceptor.java:26)
+	at org.flowable.engine.impl.bpmn.behavior.ServiceTaskDelegateExpressionActivityBehavior.execute(ServiceTaskDelegateExpressionActivityBehavior.java:111)
+	at org.flowable.engine.impl.agenda.ContinueProcessOperation.executeActivityBehavior(ContinueProcessOperation.java:275)
+	at org.flowable.engine.impl.agenda.ContinueProcessOperation.executeSynchronous(ContinueProcessOperation.java:159)
+	at org.flowable.engine.impl.agenda.ContinueProcessOperation.continueThroughFlowNode(ContinueProcessOperation.java:114)
+	at org.flowable.engine.impl.agenda.ContinueProcessOperation.run(ContinueProcessOperation.java:78)
+	at org.flowable.engine.impl.interceptor.CommandInvoker.executeOperation(CommandInvoker.java:88)
+	at org.flowable.engine.impl.interceptor.CommandInvoker.executeOperations(CommandInvoker.java:72)
+	at org.flowable.engine.impl.interceptor.CommandInvoker.execute(CommandInvoker.java:56)
+	at org.flowable.engine.impl.interceptor.BpmnOverrideContextInterceptor.execute(BpmnOverrideContextInterceptor.java:25)
+	at org.flowable.common.engine.impl.interceptor.TransactionContextInterceptor.execute(TransactionContextInterceptor.java:53)
+	at org.flowable.common.engine.impl.interceptor.CommandContextInterceptor.execute(CommandContextInterceptor.java:72)
+	at org.flowable.common.spring.SpringTransactionInterceptor.lambda$execute$0(SpringTransactionInterceptor.java:56)
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140)
+	at org.flowable.common.spring.SpringTransactionInterceptor.execute(SpringTransactionInterceptor.java:56)
+	at org.flowable.common.engine.impl.interceptor.LogInterceptor.execute(LogInterceptor.java:30)
+	at org.flowable.common.engine.impl.cfg.CommandExecutorImpl.execute(CommandExecutorImpl.java:56)
+	at org.flowable.common.engine.impl.cfg.CommandExecutorImpl.execute(CommandExecutorImpl.java:51)
+	at org.flowable.job.service.impl.asyncexecutor.ExecuteAsyncRunnable.executeJob(ExecuteAsyncRunnable.java:128)
+	at org.flowable.job.service.impl.asyncexecutor.ExecuteAsyncRunnable.run(ExecuteAsyncRunnable.java:116)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:836)
+#2.0#2020 01 08 12:56:51.609#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6###
+Step "Stage App" finished#
+
+#2.0#2020 01 08 12:56:54.044#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-25###
+[StageAppStep] Executing task "stageAppTask" of process "08b302d1-3216-11ea-bee7-eeee0a8713b8"...#
+
+#2.0#2020 01 08 12:56:55.618#Z#INFO#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-25###
+[StageAppStep] Staging application "router"...#
+
+#2.0#2020 01 08 12:57:01.408#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-25###
+Step "Stage App" finished#
+
+#2.0#2020 01 08 12:57:09.658#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-18###
+[StageAppStep] Executing task "stageAppTask" of process "08b302d1-3216-11ea-bee7-eeee0a8713b8"...#
+
+#2.0#2020 01 08 12:57:09.662#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-18###
+[StageAppStep] Checking status of application "router"...#
+
+#2.0#2020 01 08 12:57:09.780#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-18###
+[StageAppStep] Staging status of application "router": PENDING#
+
+#2.0#2020 01 08 12:57:12.315#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-18###
+Step "Stage App" finished#
+
+#2.0#2020 01 08 12:57:19.659#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-21###
+[StageAppStep] Executing task "stageAppTask" of process "08b302d1-3216-11ea-bee7-eeee0a8713b8"...#
+
+#2.0#2020 01 08 12:57:19.663#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-21###
+[StageAppStep] Checking status of application "router"...#
+
+#2.0#2020 01 08 12:57:19.828#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-21###
+[StageAppStep] Staging status of application "router": PENDING#
+
+#2.0#2020 01 08 12:57:20.929#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-21###
+Step "Stage App" finished#
+
+#2.0#2020 01 08 12:57:29.683#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-13###
+[StageAppStep] Executing task "stageAppTask" of process "08b302d1-3216-11ea-bee7-eeee0a8713b8"...#
+
+#2.0#2020 01 08 12:57:29.687#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-13###
+[StageAppStep] Checking status of application "router"...#
+
+#2.0#2020 01 08 12:57:29.798#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-13###
+[StageAppStep] Staging status of application "router": PENDING#
+
+#2.0#2020 01 08 12:57:31.177#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-13###
+Step "Stage App" finished#
+
+#2.0#2020 01 08 12:57:39.695#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-5###
+[StageAppStep] Executing task "stageAppTask" of process "08b302d1-3216-11ea-bee7-eeee0a8713b8"...#
+
+#2.0#2020 01 08 12:57:39.700#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-5###
+[StageAppStep] Checking status of application "router"...#
+
+#2.0#2020 01 08 12:57:39.815#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-5###
+[StageAppStep] Staging status of application "router": FAILED#
+
+#2.0#2020 01 08 12:57:40.834#Z#ERROR#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-5###
+[StageAppStep] Staging of application "router" failed. Download the application logs via the dmol command and check them for more information.#
+
+#2.0#2020 01 08 12:57:40.839#Z#ERROR#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-5###
+[StageAppStep] BuildpackCompileFailed - App staging failed in the buildpack compile phase#
+
+#2.0#2020 01 08 12:57:40.841#Z#ERROR#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-5###
+Exception caught#
+
+com.sap.cloud.lm.sl.common.SLException: A step of the process has failed. Retrying it may solve the issue.
+	at com.sap.cloud.lm.sl.cf.process.steps.SyncFlowableStep.executeInternal(SyncFlowableStep.java:69)
+	at com.sap.cloud.lm.sl.cf.process.steps.SyncFlowableStep.lambda$execute$0(SyncFlowableStep.java:58)
+	at com.sap.cloud.lm.sl.cf.core.util.LoggingUtil.logWithCorrelationId(LoggingUtil.java:15)
+	at com.sap.cloud.lm.sl.cf.process.steps.SyncFlowableStep.execute(SyncFlowableStep.java:58)
+	at org.flowable.engine.impl.delegate.invocation.JavaDelegateInvocation.invoke(JavaDelegateInvocation.java:35)
+	at org.flowable.engine.impl.delegate.invocation.DelegateInvocation.proceed(DelegateInvocation.java:35)
+	at org.flowable.engine.impl.delegate.invocation.DefaultDelegateInterceptor.handleInvocation(DefaultDelegateInterceptor.java:26)
+	at org.flowable.engine.impl.bpmn.behavior.ServiceTaskDelegateExpressionActivityBehavior.execute(ServiceTaskDelegateExpressionActivityBehavior.java:111)
+	at org.flowable.engine.impl.agenda.ContinueProcessOperation.executeActivityBehavior(ContinueProcessOperation.java:275)
+	at org.flowable.engine.impl.agenda.ContinueProcessOperation.executeSynchronous(ContinueProcessOperation.java:159)
+	at org.flowable.engine.impl.agenda.ContinueProcessOperation.continueThroughFlowNode(ContinueProcessOperation.java:114)
+	at org.flowable.engine.impl.agenda.ContinueProcessOperation.run(ContinueProcessOperation.java:78)
+	at org.flowable.engine.impl.interceptor.CommandInvoker.executeOperation(CommandInvoker.java:88)
+	at org.flowable.engine.impl.interceptor.CommandInvoker.executeOperations(CommandInvoker.java:72)
+	at org.flowable.engine.impl.interceptor.CommandInvoker.execute(CommandInvoker.java:56)
+	at org.flowable.engine.impl.interceptor.BpmnOverrideContextInterceptor.execute(BpmnOverrideContextInterceptor.java:25)
+	at org.flowable.common.engine.impl.interceptor.TransactionContextInterceptor.execute(TransactionContextInterceptor.java:53)
+	at org.flowable.common.engine.impl.interceptor.CommandContextInterceptor.execute(CommandContextInterceptor.java:72)
+	at org.flowable.common.spring.SpringTransactionInterceptor.lambda$execute$0(SpringTransactionInterceptor.java:56)
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140)
+	at org.flowable.common.spring.SpringTransactionInterceptor.execute(SpringTransactionInterceptor.java:56)
+	at org.flowable.common.engine.impl.interceptor.LogInterceptor.execute(LogInterceptor.java:30)
+	at org.flowable.common.engine.impl.cfg.CommandExecutorImpl.execute(CommandExecutorImpl.java:56)
+	at org.flowable.common.engine.impl.cfg.CommandExecutorImpl.execute(CommandExecutorImpl.java:51)
+	at org.flowable.job.service.impl.asyncexecutor.ExecuteAsyncRunnable.executeJob(ExecuteAsyncRunnable.java:128)
+	at org.flowable.job.service.impl.asyncexecutor.ExecuteAsyncRunnable.run(ExecuteAsyncRunnable.java:116)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:836)
+#2.0#2020 01 08 12:57:40.846#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-5###
+Step "Stage App" finished#
+
+#2.0#2020 01 08 12:57:43.729#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-32###
+[StageAppStep] Executing task "stageAppTask" of process "08b302d1-3216-11ea-bee7-eeee0a8713b8"...#
+
+#2.0#2020 01 08 12:57:43.737#Z#INFO#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-32###
+[StageAppStep] Staging application "router"...#
+
+#2.0#2020 01 08 12:57:48.928#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-32###
+Step "Stage App" finished#
+
+#2.0#2020 01 08 12:57:59.752#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-10###
+[StageAppStep] Executing task "stageAppTask" of process "08b302d1-3216-11ea-bee7-eeee0a8713b8"...#
+
+#2.0#2020 01 08 12:58:00.200#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-10###
+[StageAppStep] Checking status of application "router"...#
+
+#2.0#2020 01 08 12:58:01.055#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-10###
+[StageAppStep] Staging status of application "router": PENDING#
+
+#2.0#2020 01 08 12:58:06.947#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-10###
+Step "Stage App" finished#
+
+#2.0#2020 01 08 12:58:19.797#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-23###
+[StageAppStep] Executing task "stageAppTask" of process "08b302d1-3216-11ea-bee7-eeee0a8713b8"...#
+
+#2.0#2020 01 08 12:58:19.801#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-23###
+[StageAppStep] Checking status of application "router"...#
+
+#2.0#2020 01 08 12:58:19.938#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-23###
+[StageAppStep] Staging status of application "router": FAILED#
+
+#2.0#2020 01 08 12:58:22.419#Z#ERROR#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-23###
+[StageAppStep] Staging of application "router" failed. Download the application logs via the dmol command and check them for more information.#
+
+#2.0#2020 01 08 12:58:22.422#Z#ERROR#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-23###
+[StageAppStep] BuildpackCompileFailed - App staging failed in the buildpack compile phase#
+
+#2.0#2020 01 08 12:58:22.424#Z#ERROR#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-23###
+Exception caught#
+
+com.sap.cloud.lm.sl.common.SLException: A step of the process has failed. Retrying it may solve the issue.
+	at com.sap.cloud.lm.sl.cf.process.steps.SyncFlowableStep.executeInternal(SyncFlowableStep.java:69)
+	at com.sap.cloud.lm.sl.cf.process.steps.SyncFlowableStep.lambda$execute$0(SyncFlowableStep.java:58)
+	at com.sap.cloud.lm.sl.cf.core.util.LoggingUtil.logWithCorrelationId(LoggingUtil.java:15)
+	at com.sap.cloud.lm.sl.cf.process.steps.SyncFlowableStep.execute(SyncFlowableStep.java:58)
+	at org.flowable.engine.impl.delegate.invocation.JavaDelegateInvocation.invoke(JavaDelegateInvocation.java:35)
+	at org.flowable.engine.impl.delegate.invocation.DelegateInvocation.proceed(DelegateInvocation.java:35)
+	at org.flowable.engine.impl.delegate.invocation.DefaultDelegateInterceptor.handleInvocation(DefaultDelegateInterceptor.java:26)
+	at org.flowable.engine.impl.bpmn.behavior.ServiceTaskDelegateExpressionActivityBehavior.execute(ServiceTaskDelegateExpressionActivityBehavior.java:111)
+	at org.flowable.engine.impl.agenda.ContinueProcessOperation.executeActivityBehavior(ContinueProcessOperation.java:275)
+	at org.flowable.engine.impl.agenda.ContinueProcessOperation.executeSynchronous(ContinueProcessOperation.java:159)
+	at org.flowable.engine.impl.agenda.ContinueProcessOperation.continueThroughFlowNode(ContinueProcessOperation.java:114)
+	at org.flowable.engine.impl.agenda.ContinueProcessOperation.run(ContinueProcessOperation.java:78)
+	at org.flowable.engine.impl.interceptor.CommandInvoker.executeOperation(CommandInvoker.java:88)
+	at org.flowable.engine.impl.interceptor.CommandInvoker.executeOperations(CommandInvoker.java:72)
+	at org.flowable.engine.impl.interceptor.CommandInvoker.execute(CommandInvoker.java:56)
+	at org.flowable.engine.impl.interceptor.BpmnOverrideContextInterceptor.execute(BpmnOverrideContextInterceptor.java:25)
+	at org.flowable.common.engine.impl.interceptor.TransactionContextInterceptor.execute(TransactionContextInterceptor.java:53)
+	at org.flowable.common.engine.impl.interceptor.CommandContextInterceptor.execute(CommandContextInterceptor.java:72)
+	at org.flowable.common.spring.SpringTransactionInterceptor.lambda$execute$0(SpringTransactionInterceptor.java:56)
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140)
+	at org.flowable.common.spring.SpringTransactionInterceptor.execute(SpringTransactionInterceptor.java:56)
+	at org.flowable.common.engine.impl.interceptor.LogInterceptor.execute(LogInterceptor.java:30)
+	at org.flowable.common.engine.impl.cfg.CommandExecutorImpl.execute(CommandExecutorImpl.java:56)
+	at org.flowable.common.engine.impl.cfg.CommandExecutorImpl.execute(CommandExecutorImpl.java:51)
+	at org.flowable.job.service.impl.asyncexecutor.ExecuteAsyncRunnable.executeJob(ExecuteAsyncRunnable.java:128)
+	at org.flowable.job.service.impl.asyncexecutor.ExecuteAsyncRunnable.run(ExecuteAsyncRunnable.java:116)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:836)
+#2.0#2020 01 08 12:58:22.430#Z#DEBUG#com.sap.cloud.lm.sl.xs2.0354a663-3216-11ea-bee7-eeee0a8713b8.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-23###
+Step "Stage App" finished#
+
