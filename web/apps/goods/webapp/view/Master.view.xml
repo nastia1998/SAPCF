@@ -1,6 +1,6 @@
 <mvc:View
         xmlns:mvc="sap.ui.core.mvc"
-        xmlns:m="sap.m"
+        xmlns="sap.m"
         xmlns:f="sap.ui.layout.form"
         xmlns:core="sap.ui.core"
         controllerName="goods.controller.Master">
@@ -27,21 +27,30 @@
 
             </f:content>
         </f:SimpleForm>
-        <Table>
-            <columns>
-                <Column
-                        id="goid"
-                        width="11rem"
-                        filterProperty="Name"
-                        showFilterMenuEntry="true"
-                        showSortMenuEntry="true">
-                    <m:Label text="Product Name" />
-                    <template>
-                        <m:Text text="{Name}" wrapping="false" />
-                    </template>
-                </Column>
-            </columns>
-        </Table>
+<!--        <m:content>-->
+<!--        <Table>-->
+<!--            <columns>-->
+<!--                <Column-->
+<!--                        id="goid"-->
+<!--                        width="11rem">-->
+<!--                    <m:Label text="goid" />-->
+<!--                    <template>-->
+<!--                        <m:Text text="{GOID}" wrapping="false" />-->
+<!--                    </template>-->
+<!--                </Column>-->
+<!--                <Column-->
+<!--                        id="name"-->
+<!--                        width="11rem"-->
+<!--                        showFilterMenuEntry="true"-->
+<!--                        showSortMenuEntry="true">-->
+<!--                    <m:Label text="Name" />-->
+<!--                    <template>-->
+<!--                        <m:Text text="{NAME}" wrapping="false" />-->
+<!--                    </template>-->
+<!--                </Column>-->
+<!--            </columns>-->
+<!--        </Table>-->
+<!--        </m:content>-->
         <footer>
             <OverflowToolbar visible="{config>/isEdit}">
                 <ToolbarSpacer/>
