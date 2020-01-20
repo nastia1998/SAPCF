@@ -3,7 +3,8 @@
         xmlns="sap.m"
         xmlns:f="sap.ui.layout.form"
         xmlns:core="sap.ui.core"
-        controllerName="goods.controller.Master">
+        controllerName="goods.controller.Master"
+        id="MasterPageID">
     <Page showHeader="false">
         <f:SimpleForm
                 title="Goods"
@@ -27,30 +28,46 @@
 
             </f:content>
         </f:SimpleForm>
-<!--        <m:content>-->
-<!--        <Table>-->
-<!--            <columns>-->
-<!--                <Column-->
-<!--                        id="goid"-->
-<!--                        width="11rem">-->
-<!--                    <m:Label text="goid" />-->
-<!--                    <template>-->
-<!--                        <m:Text text="{GOID}" wrapping="false" />-->
-<!--                    </template>-->
-<!--                </Column>-->
-<!--                <Column-->
-<!--                        id="name"-->
-<!--                        width="11rem"-->
-<!--                        showFilterMenuEntry="true"-->
-<!--                        showSortMenuEntry="true">-->
-<!--                    <m:Label text="Name" />-->
-<!--                    <template>-->
-<!--                        <m:Text text="{NAME}" wrapping="false" />-->
-<!--                    </template>-->
-<!--                </Column>-->
-<!--            </columns>-->
-<!--        </Table>-->
-<!--        </m:content>-->
+        <Table
+                id="GoodsTable"
+                items="{
+                    path: 'goods>/'
+                }"
+                width="auto">
+            <headerToolbar>
+                <Toolbar>
+                    <Title id="idCountTitle"/>
+                    <ToolbarSpacer/>
+                    <Button
+                            icon="sap-icon://action-settings"
+                            tooltip="{i18n>onSettings}"
+                            press="onSettings"/>
+                </Toolbar>
+            </headerToolbar>
+            <columns>
+                <Column width="20%">
+                    <Label text="{i18n>system}" design="Bold"/>
+                    <Text text="ID" />
+                </Column>
+                <Column>
+                    <Label text="{i18n>description}" design="Bold"/>
+                    <Text text="Name" />
+                </Column>
+                <Column>
+                    <Label text="{i18n>description}" design="Bold"/>
+                    <Text text="Price" />
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem type="Navigation" press="onGoToDetail">
+                    <cells>
+                        <ObjectIdentifier title="{goods>GOID}" text="{goid}"/>
+                        <Text text="{goods>NAME}"/>
+                        <Text text="{goods>PRICE}"/>
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
         <footer>
             <OverflowToolbar visible="{config>/isEdit}">
                 <ToolbarSpacer/>

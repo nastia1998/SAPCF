@@ -11,6 +11,7 @@ const logging = require("@sap/logging");
 const compression = require("compression");
 const cds = require("@sap/cds");
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 if (process.argv[2] === "--debug") {
     global.DEBUG_MODE = true;
@@ -27,6 +28,8 @@ const app = express();
 
 //Body parser
 app.use(bodyParser.json());
+
+app.use(cors());
 
 //Compression
 app.use(compression({

@@ -6,9 +6,7 @@ modules:
     -
         name: router
         type: nodejs
-        path: ./
-        properties:
-            XS_APP_LOG_LEVEL: debug
+        path: router
         build-parameters:
             ignore: [".git/", ".idea/", ".gitignore", ".gitlab-ci.yml", "mta.jar", "mta.yaml"]
         parameters:
@@ -20,6 +18,18 @@ modules:
             - {name: lev_dest}
             - {name: lev_uaa}
             - {name: lev_srv, group: destinations, properties: {name: lev_srv, url: '~{url}', forwardAuthToken: true}}
+        properties:
+            XS_APP_LOG_LEVEL: debug
+#            CORS: '[
+#                { "uriPattern": "(.*)",
+#                  "allowedOrigin": [
+#                      { "host": "*.hana.ondemand.com", "protocol": "https" },
+#                      { "host": "*.hana.ondemand.com", "protocol": "http" }
+#                  ],
+#                  "allowedMethods": ["GET", "POST", "HEAD", "OPTIONS", "PUT", "DELETE"],
+#                  "allowedHeaders": ["Origin", "Accept", "X-Requested-With", "Content-Type", "Access-Control-Request-Method",
+#                  "exposeHeaders": ["Accept", "Authorization", "X-Requested-With", "X-Sap-Cid", "Access-Control-Allow-Origin"
+#                }]'
 resources:
     -
         name: lev_srv

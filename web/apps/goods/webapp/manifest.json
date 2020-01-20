@@ -25,7 +25,9 @@
         "uri": "http://localhost:3000/odata/",
         "type": "OData",
         "settings": {
-          "odataVersion": "4.0"
+          "odataVersion": "4.0",
+          "useBatch": false,
+          "groupId": "$direct"
         }
       }
     }
@@ -78,13 +80,16 @@
           "bundleName": "goods.i18n.i18n"
         }
       },
-      "": {
-        "dataSource": "odata",
+      "myodata": {
+        "dataSource": "local_odata",
         "settings": {
           "operationMode": "Server",
-          "synchronizationMode": "None"
+          "synchronizationMode": "None",
+          "groupId": "$direct"
+
         },
-        "preload": true
+        "preload": true,
+        "type": "sap.ui.model.odata.v4.ODataModel"
       }
     },
     "resources": {
@@ -108,7 +113,7 @@
       "routes": [
         {
           "pattern": "",
-          "name": "master",
+          "name": "Master",
           "target": "Master"
         }
       ],

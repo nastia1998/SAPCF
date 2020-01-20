@@ -15,15 +15,20 @@ module.exports = () => {
     app.get("/", async (req, res, next) => {
         const logger = req.loggingContext.getLogger("/Application");
         logger.info('goods get request');
+        console.log('odata1');
         let tracer = req.loggingContext.getTracer(__filename);
         tracer.entering("/goods", req, res);
 
         try {
             const db = new dbClass(req.db);
-            const oGood = _prepareObject(req.body, req);
+            let oGood = _prepareObject(req.body, req);
             const sSql = "SELECT * FROM \"GOOD\"";
-            oGood.goods = await db.executeUpdate(sSql);
+            oGood = await db.executeUpdate(sSql);
             tracer.exiting("/goods", "goods GET works");
+            console.log('odata');
+            //res.set("Access-Control-Expose-Header","OData-Version");
+            //res.set('OData-Version', '4.0');
+            console.log(res.getHeaders());
             res.type("application/json").status(200).send(JSON.stringify(oGood));
         } catch (e) {
             tracer.catching("/goods", e);
